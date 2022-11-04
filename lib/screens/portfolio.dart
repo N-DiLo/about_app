@@ -1,4 +1,3 @@
-import 'package:about_app/screens/about_me.dart';
 import 'package:about_app/utils/components/app_components.dart';
 import 'package:about_app/utils/constant/app_color.dart';
 import 'package:about_app/utils/shared/buttons.dart';
