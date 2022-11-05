@@ -1,12 +1,8 @@
 import 'package:about_app/utils/constant/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:url_launcher/link.dart';
-
 import '../constant/app_color.dart';
 
 class AppButton extends StatelessWidget {
