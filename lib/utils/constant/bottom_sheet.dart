@@ -24,11 +24,8 @@ class _AppSettingsState extends State<AppSettings> {
           ),
           child: Row(
             children: [
-              Icon(
-                Iconsax.setting_4,
-                color: AppPalette.whiteColor,
-                size: ScreenUtil().radius(30),
-              ),
+              Icon(Iconsax.setting_4,
+                  color: AppPalette.whiteColor, size: ScreenUtil().radius(30)),
               const SizedBox(width: 17),
               Text(
                 'App Settings',

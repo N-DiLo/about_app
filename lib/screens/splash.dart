@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:about_app/screens/home.dart';
 import 'package:about_app/utils/constant/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,10 @@ startTimer() {
   return Timer(duration, route);
 }
 
-route() async {}
+route() async {
+  Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (_) => const HomeView()));
+}
 
 class _SplashState extends State<Splash> {
   @override
