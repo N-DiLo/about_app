@@ -18,10 +18,10 @@ void initState() {
 
 startTimer() {
   var duration = const Duration(seconds: 3);
-  return Timer(duration, route);
+  return Timer(duration, routes);
 }
 
-route() async {
+routes() async {
   Navigator.pushReplacement(
       context, MaterialPageRoute(builder: (_) => const HomeView()));
 }
