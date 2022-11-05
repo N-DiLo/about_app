@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum DeviceScreen { Mobile, Tablet }
+enum DeviceScreen { mobileLayout, tabletLayout }
 
 class ScreenSizeInfo {
   final DeviceScreen? deviceScreen;
@@ -8,9 +8,6 @@ class ScreenSizeInfo {
   final Size? localWidgetSize;
 
   ScreenSizeInfo({this.deviceScreen, this.screenSize, this.localWidgetSize});
-
-  @override
-  String toString() => super.toString();
 }
 
 //Creating app responsive architecture with DeviceType breakpoints
@@ -38,9 +35,9 @@ DeviceScreen getDeviceType(MediaQueryData mediaQuery) {
   double deviceWidth = mediaQuery.size.shortestSide;
 
   if (deviceWidth > 600) {
-    return DeviceScreen.Tablet;
+    return DeviceScreen.tabletLayout;
   }
-  return DeviceScreen.Mobile;
+  return DeviceScreen.mobileLayout;
 }
 
 //Setting ScreenLayout based on breakpoints provided by responsive builder
@@ -53,7 +50,7 @@ class ScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Responsive(builder: ((context, screenSizeInfo) {
-      if (screenSizeInfo.deviceScreen == DeviceScreen.Mobile) {
+      if (screenSizeInfo.deviceScreen == DeviceScreen.mobileLayout) {
         return mobile;
       }
       return mobile;

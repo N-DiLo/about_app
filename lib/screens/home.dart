@@ -9,17 +9,24 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: const FAB(),
-      backgroundColor: AppPalette.whiteColor,
-      body: SingleChildScrollView(
-        child: Padding(
+    return SafeArea(
+      child: Scaffold(
+        floatingActionButton: const FAB(),
+        backgroundColor: AppPalette.whiteColor,
+        body: Padding(
           padding: REdgeInsets.symmetric(horizontal: 28),
           child: Column(
             children: [
               const HomeComponents(), //HomeView Header
-              SizedBox(height: ScreenUtil().setHeight(20)),
-              const HomeButtons(), //HomeView Buttons
+              Expanded(
+                child: MediaQuery.removePadding(
+                  removeTop: true,
+                  context: context,
+                  child: const SingleChildScrollView(
+                    child: HomeButtons(), //HomeView Buttons
+                  ),
+                ),
+              ),
             ],
           ),
         ),

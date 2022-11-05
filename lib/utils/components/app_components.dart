@@ -1,4 +1,4 @@
-import 'package:about_app/screens/about_me.dart';
+import 'package:about_app/screens/background.dart';
 import 'package:about_app/screens/experience.dart';
 import 'package:about_app/screens/portfolio.dart';
 import 'package:about_app/utils/shared/buttons.dart';
@@ -18,6 +18,7 @@ class HomeComponents extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: ScreenUtil().setHeight(10)),
         Container(
           width: ScreenUtil().setHeight(119),
           height: ScreenUtil().setWidth(119),
@@ -123,40 +124,9 @@ class HomeComponents extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
-              height: ScreenUtil().setHeight(16),
-            ),
-            const Divider(
-              color: AppPalette.fontColor,
-            ),
+            SizedBox(height: ScreenUtil().setHeight(16)),
+            const Divider(color: AppPalette.fontColor),
             SizedBox(height: ScreenUtil().setHeight(10)),
-            Card(
-              child: Container(
-                padding: REdgeInsets.all(10),
-                height: ScreenUtil().setHeight(100),
-                width: ScreenUtil().setWidth(370),
-                child: Column(children: [
-                  RichText(
-                    textAlign: TextAlign.left,
-                    text: TextSpan(
-                        text: 'Objectives\n',
-                        style: GoogleFonts.quicksand(
-                            fontWeight: FontWeight.w700,
-                            fontSize: ScreenUtil().setSp(13),
-                            color: AppPalette.fontColor),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text:
-                                  'To utilize my technical skills and provide a professional service to customers by applying and honing my knowledge and working in a challenging and motivating working environment. ',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(12),
-                                  fontWeight: FontWeight.w400,
-                                  color: AppPalette.fontColor)),
-                        ]),
-                  )
-                ]),
-              ),
-            ),
           ],
         ),
       ],
@@ -172,10 +142,38 @@ class HomeButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Card(
+          child: Container(
+            padding: REdgeInsets.all(10),
+            height: ScreenUtil().setHeight(100),
+            width: ScreenUtil().setWidth(370),
+            child: Column(children: [
+              RichText(
+                textAlign: TextAlign.left,
+                text: TextSpan(
+                    text: 'Objectives\n',
+                    style: GoogleFonts.quicksand(
+                        fontWeight: FontWeight.w700,
+                        fontSize: ScreenUtil().setSp(13),
+                        color: AppPalette.fontColor),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text:
+                              'To utilize my technical skills and provide a professional service to customers by applying and honing my knowledge and working in a challenging and motivating working environment. ',
+                          style: GoogleFonts.quicksand(
+                              fontSize: ScreenUtil().setSp(12),
+                              fontWeight: FontWeight.w400,
+                              color: AppPalette.fontColor)),
+                    ]),
+              )
+            ]),
+          ),
+        ),
+        SizedBox(height: ScreenUtil().setHeight(20)),
         AppButton(
             primary: AppPalette.buttonColor,
             onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => const AboutMe())),
+                context, MaterialPageRoute(builder: (_) => const Background())),
             fill: Row(
               children: [
                 FaIcon(

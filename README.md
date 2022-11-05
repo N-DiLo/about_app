@@ -1,6 +1,6 @@
 # About
 
-A Flutter project for Displaying user porfolio.
+A Flutter project for Displaying user portfolio.
 
 ## Getting Started
 
