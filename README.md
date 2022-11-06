@@ -16,11 +16,15 @@ For help getting started with Flutter development, view the
 
 # [Flutter] About Mobile Application
 
+## [The App] Appetize Link
+- [Appetize-Link](https://appetize.io/app/fbyynikdyzck3nr6idwwbd4v3e?device=pixel4&osVersion=11.0&scale=75)
+The app can be tested using the above link, without it been installed on your physical device. The [Appetize](https://appetize.io) enables developers try out the debug versions of their apps without it been installed on physical devices.
+
 ## UI Design
 - [UI-Design] (https://www.figma.com/file/nJbi2feq7GOnEl4Wyj9qrI/Untitled?node-id=0%3A1)
 
 # Introduction
-This is a flutter mobile application for displaying user profile on launch. The app was made using different Flutter dependencies for general responsiveness and a few tweaks for effective user experience.
+This is a flutter mobile application for displaying user profile on launch. The app was made using different Flutter dependencies for general responsiveness and a few tweaks for effective user experience; the landscape mode of the app looks a little bit messy and is still been worked on but the portrait view works on all mobile device types and screen sizes.
 
 ## Prerequisites
 - [Visual Studio Code](https://code.visualstudio.com/download)
