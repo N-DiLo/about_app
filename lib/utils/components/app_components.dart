@@ -1,12 +1,14 @@
 import 'package:about_app/screens/background.dart';
 import 'package:about_app/screens/experience.dart';
 import 'package:about_app/screens/portfolio.dart';
+import 'package:about_app/utils/responsive.dart';
 import 'package:about_app/utils/shared/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:url_launcher/link.dart';
 import '../constant/app_color.dart';
 
@@ -19,118 +21,125 @@ class HomeComponents extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: ScreenUtil().setHeight(10)),
-        AspectRatio(
-          aspectRatio: 2.8,
-          child: Container(
-            width: ScreenUtil().setWidth(50),
-            height: ScreenUtil().setHeight(50),
+        Responsive(
+          builder: (BuildContext context, ScreenSizeInfo screenSizeInfo) =>
+              Container(
+            width: ScreenUtil().setWidth(119),
+            height: ScreenUtil().setHeight(119),
             decoration: BoxDecoration(
                 image: const DecorationImage(
                     image: AssetImage('assets/profile.jpg')),
                 border: Border.all(
-                    width: ScreenUtil().setWidth(6),
+                    width: ScreenUtil().setWidth(5),
                     color: AppPalette.primaryColor),
                 shape: BoxShape.circle,
                 color: AppPalette.whiteColor),
           ),
         ),
         SizedBox(height: ScreenUtil().setHeight(16)),
-        RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-              text: 'Egbekwu Nwanedilobu \n',
-              style: GoogleFonts.montserrat(
-                  fontSize: ScreenUtil().setSp(20),
-                  fontWeight: FontWeight.w700,
-                  color: AppPalette.textColor),
-              children: <TextSpan>[
-                TextSpan(
-                  text:
-                      'Graduate Computer Science, Mobile Developer,\n UI/UX Designer, Graphics Designer & Computer Instructor',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(12),
-                      fontWeight: FontWeight.w300),
-                )
-              ]),
+        Responsive(
+          builder: (BuildContext context, ScreenSizeInfo screenSizeInfo) =>
+              RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+                text: 'Egbekwu Nwanedilobu \n',
+                style: GoogleFonts.montserrat(
+                    fontSize: ScreenUtil().setSp(20),
+                    fontWeight: FontWeight.w700,
+                    color: AppPalette.textColor),
+                children: <TextSpan>[
+                  TextSpan(
+                    text:
+                        'Graduate Computer Science, Mobile Developer,\n UI/UX Designer, Graphics Designer & Computer Instructor',
+                    style: GoogleFonts.quicksand(
+                        fontSize: ScreenUtil().setSp(12),
+                        fontWeight: FontWeight.w300),
+                  )
+                ]),
+          ),
         ),
         SizedBox(height: ScreenUtil().setHeight(16)),
-        Column(
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Iconsax.calendar5,
-                  color: AppPalette.textColor1,
-                  size: ScreenUtil().radius(20),
-                ),
-                SizedBox(
-                  width: ScreenUtil().setWidth(4),
-                ),
-                Text(
-                  'January 28',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(10),
-                      color: AppPalette.defaultColor,
-                      fontWeight: FontWeight.w400),
-                ),
-                SizedBox(width: ScreenUtil().setWidth(35)),
-                Icon(
-                  Iconsax.messages_15,
-                  color: AppPalette.textColor1,
-                  size: ScreenUtil().radius(20),
-                ),
-                SizedBox(
-                  width: ScreenUtil().setWidth(4),
-                ),
-                Text(
-                  'egbekwunwanedilobu@gmail.com',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(10),
-                      color: AppPalette.defaultColor,
-                      fontWeight: FontWeight.w400),
-                )
-              ],
-            ),
-            SizedBox(height: ScreenUtil().setHeight(5)),
-            Row(
-              children: [
-                Icon(
-                  Iconsax.location5,
-                  color: AppPalette.textColor1,
-                  size: ScreenUtil().radius(20),
-                ),
-                SizedBox(
-                  width: ScreenUtil().setWidth(4),
-                ),
-                Text(
-                  'Rivers, Port Harcourt',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(10),
-                      color: AppPalette.defaultColor,
-                      fontWeight: FontWeight.w400),
-                ),
-                SizedBox(width: ScreenUtil().setWidth(42)),
-                Icon(
-                  Iconsax.call5,
-                  color: AppPalette.textColor1,
-                  size: ScreenUtil().radius(20),
-                ),
-                SizedBox(
-                  width: ScreenUtil().setWidth(4),
-                ),
-                Text(
-                  '+234 (0) 816 832 2467',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(10),
-                      color: AppPalette.defaultColor,
-                      fontWeight: FontWeight.w400),
-                )
-              ],
-            ),
-            SizedBox(height: ScreenUtil().setHeight(16)),
-            const Divider(color: AppPalette.fontColor),
-            SizedBox(height: ScreenUtil().setHeight(10)),
-          ],
+        Responsive(
+          builder: (BuildContext context, ScreenSizeInfo screenSizeInfo) =>
+              Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Iconsax.calendar5,
+                    color: AppPalette.textColor1,
+                    size: ScreenUtil().radius(20),
+                  ),
+                  SizedBox(
+                    width: ScreenUtil().setWidth(4),
+                  ),
+                  Text(
+                    'January 28',
+                    style: GoogleFonts.quicksand(
+                        fontSize: ScreenUtil().setSp(10),
+                        color: AppPalette.defaultColor,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(width: ScreenUtil().setWidth(35)),
+                  Icon(
+                    Iconsax.messages_15,
+                    color: AppPalette.textColor1,
+                    size: ScreenUtil().radius(20),
+                  ),
+                  SizedBox(
+                    width: ScreenUtil().setWidth(4),
+                  ),
+                  Text(
+                    'egbekwunwanedilobu@gmail.com',
+                    style: GoogleFonts.quicksand(
+                        fontSize: ScreenUtil().setSp(10),
+                        color: AppPalette.defaultColor,
+                        fontWeight: FontWeight.w400),
+                  )
+                ],
+              ),
+              SizedBox(height: ScreenUtil().setHeight(5)),
+              Row(
+                children: [
+                  Icon(
+                    Iconsax.location5,
+                    color: AppPalette.textColor1,
+                    size: ScreenUtil().radius(20),
+                  ),
+                  SizedBox(
+                    width: ScreenUtil().setWidth(4),
+                  ),
+                  Text(
+                    'Rivers, Port Harcourt',
+                    style: GoogleFonts.quicksand(
+                        fontSize: ScreenUtil().setSp(10),
+                        color: AppPalette.defaultColor,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(width: ScreenUtil().setWidth(42)),
+                  Icon(
+                    Iconsax.call5,
+                    color: AppPalette.textColor1,
+                    size: ScreenUtil().radius(20),
+                  ),
+                  SizedBox(
+                    width: ScreenUtil().setWidth(4),
+                  ),
+                  Text(
+                    '+234 (0) 816 832 2467',
+                    style: GoogleFonts.quicksand(
+                        fontSize: ScreenUtil().setSp(10),
+                        color: AppPalette.defaultColor,
+                        fontWeight: FontWeight.w400),
+                  )
+                ],
+              ),
+              SizedBox(height: ScreenUtil().setHeight(16)),
+              const Divider(color: AppPalette.fontColor),
+              SizedBox(height: ScreenUtil().setHeight(10)),
+            ],
+          ),
         ),
       ],
     );
@@ -145,31 +154,33 @@ class HomeButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Card(
-          child: Container(
-            padding: REdgeInsets.all(10),
-            height: ScreenUtil().setHeight(100),
-            width: ScreenUtil().setWidth(370),
-            child: Column(children: [
-              RichText(
-                textAlign: TextAlign.left,
-                text: TextSpan(
-                    text: 'Objectives\n',
-                    style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w700,
-                        fontSize: ScreenUtil().setSp(13),
-                        color: AppPalette.fontColor),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text:
-                              'To utilize my technical skills and provide a professional service to customers by applying and honing my knowledge and working in a challenging and motivating working environment. ',
-                          style: GoogleFonts.quicksand(
-                              fontSize: ScreenUtil().setSp(12),
-                              fontWeight: FontWeight.w400,
-                              color: AppPalette.fontColor)),
-                    ]),
-              )
-            ]),
+        Responsive(
+          builder: (BuildContext context, screenSizeInfo) => Card(
+            child: Container(
+              padding: REdgeInsets.all(10),
+              height: ScreenUtil().setHeight(100),
+              width: ScreenUtil().setWidth(370),
+              child: Column(children: [
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(
+                      text: 'Objectives\n',
+                      style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(13),
+                          color: AppPalette.fontColor),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text:
+                                'To utilize my technical skills and provide a professional service to customers by applying and honing my knowledge and working in a challenging and motivating working environment. ',
+                            style: GoogleFonts.quicksand(
+                                fontSize: ScreenUtil().setSp(12),
+                                fontWeight: FontWeight.w400,
+                                color: AppPalette.fontColor)),
+                      ]),
+                )
+              ]),
+            ),
           ),
         ),
         SizedBox(height: ScreenUtil().setHeight(20)),
@@ -354,86 +365,88 @@ class AboutText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.left,
-      text: TextSpan(
-          text: 'Thinking\n',
-          style: GoogleFonts.quicksand(
-              fontWeight: FontWeight.w700,
-              fontSize: ScreenUtil().setSp(14),
-              color: AppPalette.fontColor),
-          children: <TextSpan>[
-            TextSpan(
-                text: 'Analysing | Exploring\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(13),
-                    fontWeight: FontWeight.w500,
-                    color: AppPalette.primaryColor)),
-            TextSpan(
-                text:
-                    'Nwanedilobu prefers to take decisions based on feelings or instinct rather than rely on evidence. As a result, Nwanedilobu tends to pay attention to different views and opinions rather than spending their time analysing data.\n\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(12),
-                    fontWeight: FontWeight.w400,
-                    color: AppPalette.fontColor)),
-            TextSpan(
-                text: 'Executing\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(14),
-                    fontWeight: FontWeight.w700,
-                    color: AppPalette.fontColor)),
-            TextSpan(
-                text: 'Quality | Result Driven\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(13),
-                    fontWeight: FontWeight.w500,
-                    color: AppPalette.primaryColor)),
-            TextSpan(
-                text:
-                    'Nwanedilobu tends to be systematic, methodical and organised and delivers within deadlines. Nwanedilobu is reliable and disciplined and driven to achieve their goals.\n\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(12),
-                    fontWeight: FontWeight.w400,
-                    color: AppPalette.fontColor)),
-            TextSpan(
-                text: 'Connecting\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(14),
-                    fontWeight: FontWeight.w700,
-                    color: AppPalette.fontColor)),
-            TextSpan(
-                text: 'Networking | Collaborating\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(13),
-                    fontWeight: FontWeight.w500,
-                    color: AppPalette.primaryColor)),
-            TextSpan(
-                text:
-                    'Nwanedilobu is someone who feels at ease when connecting with new people and generally has a well-developed network.\n\nNwanedilobu displays empathy towards colleagues and finds it important to listen to their points of view. Nwanedilobu is likely to involve others in key decisions and plans. Nwanedilobu gives credit where it is due and delegates easily when necessary.\n\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(12),
-                    fontWeight: FontWeight.w400,
-                    color: AppPalette.fontColor)),
-            TextSpan(
-                text: 'Progressing\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(14),
-                    fontWeight: FontWeight.w700,
-                    color: AppPalette.fontColor)),
-            TextSpan(
-                text: 'Leadership | Resillience | Adaptability\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(13),
-                    fontWeight: FontWeight.w500,
-                    color: AppPalette.primaryColor)),
-            TextSpan(
-                text:
-                    'Nwanedilobu is comfortable with working in rapidly changing environments. Nwanedilobu views failures as learning opportunities and an intrinsic part of the route to success. Nwanedilobu brings energy to groups without wanting to necessarily take charge.\n\n',
-                style: GoogleFonts.quicksand(
-                    fontSize: ScreenUtil().setSp(12),
-                    fontWeight: FontWeight.w400,
-                    color: AppPalette.fontColor)),
-          ]),
+    return Responsive(
+      builder: (context, screenSizeInfo) => RichText(
+        textAlign: TextAlign.left,
+        text: TextSpan(
+            text: 'Thinking\n',
+            style: GoogleFonts.quicksand(
+                fontWeight: FontWeight.w700,
+                fontSize: ScreenUtil().setSp(14),
+                color: AppPalette.fontColor),
+            children: <TextSpan>[
+              TextSpan(
+                  text: 'Analysing | Exploring\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(13),
+                      fontWeight: FontWeight.w500,
+                      color: AppPalette.primaryColor)),
+              TextSpan(
+                  text:
+                      'Nwanedilobu prefers to take decisions based on feelings or instinct rather than rely on evidence. As a result, Nwanedilobu tends to pay attention to different views and opinions rather than spending their time analysing data.\n\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(12),
+                      fontWeight: FontWeight.w400,
+                      color: AppPalette.fontColor)),
+              TextSpan(
+                  text: 'Executing\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(14),
+                      fontWeight: FontWeight.w700,
+                      color: AppPalette.fontColor)),
+              TextSpan(
+                  text: 'Quality | Result Driven\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(13),
+                      fontWeight: FontWeight.w500,
+                      color: AppPalette.primaryColor)),
+              TextSpan(
+                  text:
+                      'Nwanedilobu tends to be systematic, methodical and organised and delivers within deadlines. Nwanedilobu is reliable and disciplined and driven to achieve their goals.\n\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(12),
+                      fontWeight: FontWeight.w400,
+                      color: AppPalette.fontColor)),
+              TextSpan(
+                  text: 'Connecting\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(14),
+                      fontWeight: FontWeight.w700,
+                      color: AppPalette.fontColor)),
+              TextSpan(
+                  text: 'Networking | Collaborating\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(13),
+                      fontWeight: FontWeight.w500,
+                      color: AppPalette.primaryColor)),
+              TextSpan(
+                  text:
+                      'Nwanedilobu is someone who feels at ease when connecting with new people and generally has a well-developed network.\n\nNwanedilobu displays empathy towards colleagues and finds it important to listen to their points of view. Nwanedilobu is likely to involve others in key decisions and plans. Nwanedilobu gives credit where it is due and delegates easily when necessary.\n\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(12),
+                      fontWeight: FontWeight.w400,
+                      color: AppPalette.fontColor)),
+              TextSpan(
+                  text: 'Progressing\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(14),
+                      fontWeight: FontWeight.w700,
+                      color: AppPalette.fontColor)),
+              TextSpan(
+                  text: 'Leadership | Resillience | Adaptability\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(13),
+                      fontWeight: FontWeight.w500,
+                      color: AppPalette.primaryColor)),
+              TextSpan(
+                  text:
+                      'Nwanedilobu is comfortable with working in rapidly changing environments. Nwanedilobu views failures as learning opportunities and an intrinsic part of the route to success. Nwanedilobu brings energy to groups without wanting to necessarily take charge.\n\n',
+                  style: GoogleFonts.quicksand(
+                      fontSize: ScreenUtil().setSp(12),
+                      fontWeight: FontWeight.w400,
+                      color: AppPalette.fontColor)),
+            ]),
+      ),
     );
   }
 }
@@ -444,223 +457,543 @@ class ExpComponents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Card(
-          child: Container(
-            padding: REdgeInsets.all(10),
-            height: ScreenUtil().setHeight(110),
-            width: ScreenUtil().setWidth(370),
-            child: Column(children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Work Experience - 1',
-                  style: GoogleFonts.quicksand(
-                      fontWeight: FontWeight.w700,
-                      fontSize: ScreenUtil().setSp(13),
-                      color: AppPalette.fontColor),
+    return Responsive(
+      builder: (context, screenSizeInfo) => Column(
+        children: [
+          Card(
+            child: Container(
+              padding: REdgeInsets.all(10),
+              height: ScreenUtil().setHeight(110),
+              width: ScreenUtil().setWidth(370),
+              child: Column(children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Work Experience - 1',
+                    style: GoogleFonts.quicksand(
+                        fontWeight: FontWeight.w700,
+                        fontSize: ScreenUtil().setSp(13),
+                        color: AppPalette.fontColor),
+                  ),
                 ),
-              ),
-              const Divider(color: AppPalette.fontColor),
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/rs-logo.png',
-                    width: ScreenUtil().setWidth(45),
-                    height: ScreenUtil().setHeight(44),
-                  ),
-                  SizedBox(width: ScreenUtil().setWidth(7)),
-                  Column(
-                    children: [
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                            text: 'Risigner Innovations\n',
-                            style: GoogleFonts.quicksand(
-                                fontSize: ScreenUtil().setSp(11),
-                                fontWeight: FontWeight.w700,
-                                color: AppPalette.textColor),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: 'Mobile Developer\n',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              TextSpan(
-                                text: 'Present',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ]),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ]),
-          ),
-        ),
-        Card(
-          child: Container(
-            padding: REdgeInsets.all(10),
-            height: ScreenUtil().setHeight(110),
-            width: ScreenUtil().setWidth(370),
-            child: Column(children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Work Experience - 2',
-                  style: GoogleFonts.quicksand(
-                      fontWeight: FontWeight.w700,
-                      fontSize: ScreenUtil().setSp(13),
-                      color: AppPalette.fontColor),
+                const Divider(color: AppPalette.fontColor),
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/rs-logo.png',
+                      width: ScreenUtil().setWidth(45),
+                      height: ScreenUtil().setHeight(44),
+                    ),
+                    SizedBox(width: ScreenUtil().setWidth(7)),
+                    Column(
+                      children: [
+                        RichText(
+                          textAlign: TextAlign.left,
+                          text: TextSpan(
+                              text: 'Risigner Innovations\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(11),
+                                  fontWeight: FontWeight.w700,
+                                  color: AppPalette.textColor),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: 'Mobile Developer\n',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                TextSpan(
+                                  text: 'Present',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ]),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-              ),
-              const Divider(color: AppPalette.fontColor),
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/dilo-logo.png',
-                    width: ScreenUtil().setWidth(45),
-                    height: ScreenUtil().setHeight(44),
-                  ),
-                  SizedBox(width: ScreenUtil().setWidth(7)),
-                  Column(
-                    children: [
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                            text: 'DiLo Dev. Studios\n',
-                            style: GoogleFonts.quicksand(
-                                fontSize: ScreenUtil().setSp(11),
-                                fontWeight: FontWeight.w700,
-                                color: AppPalette.textColor),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: 'Designs & Coding Instructor\n',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              TextSpan(
-                                text: 'Present',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ]),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ]),
+              ]),
+            ),
           ),
-        ),
-        SizedBox(
-          height: ScreenUtil().setHeight(22),
-        ),
-        Card(
-          child: Container(
-            padding: REdgeInsets.all(10),
-            height: ScreenUtil().setHeight(174),
-            width: ScreenUtil().setWidth(370),
-            child: Column(children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Work Experience - 3',
-                  style: GoogleFonts.quicksand(
-                      fontWeight: FontWeight.w700,
-                      fontSize: ScreenUtil().setSp(13),
-                      color: AppPalette.fontColor),
+          Card(
+            child: Container(
+              padding: REdgeInsets.all(10),
+              height: ScreenUtil().setHeight(110),
+              width: ScreenUtil().setWidth(370),
+              child: Column(children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Work Experience - 2',
+                    style: GoogleFonts.quicksand(
+                        fontWeight: FontWeight.w700,
+                        fontSize: ScreenUtil().setSp(13),
+                        color: AppPalette.fontColor),
+                  ),
                 ),
-              ),
-              const Divider(color: AppPalette.fontColor),
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/chs-logo.png',
-                    width: ScreenUtil().setWidth(45),
-                    height: ScreenUtil().setHeight(44),
-                  ),
-                  SizedBox(width: ScreenUtil().setWidth(7)),
-                  Column(
-                    children: [
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                            text: 'Cenad Schools, Rivers - Port Harcourt\n',
-                            style: GoogleFonts.quicksand(
-                                fontSize: ScreenUtil().setSp(11),
-                                fontWeight: FontWeight.w700,
-                                color: AppPalette.textColor),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: 'Computer Instructor\n',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              TextSpan(
-                                text: 'September, 2020 - Till Date',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ]),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: ScreenUtil().setHeight(18),
-              ),
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/ceds-logo.png',
-                    width: ScreenUtil().setWidth(45),
-                    height: ScreenUtil().setHeight(44),
-                  ),
-                  SizedBox(width: ScreenUtil().setWidth(7)),
-                  Column(
-                    children: [
-                      RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                            text: 'Cenad Schools, Rivers - Port Harcourt\n',
-                            style: GoogleFonts.quicksand(
-                                fontSize: ScreenUtil().setSp(11),
-                                fontWeight: FontWeight.w700,
-                                color: AppPalette.textColor),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: 'Coding Instructor\n',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              TextSpan(
-                                text: 'September, 2020 - Till Date',
-                                style: GoogleFonts.quicksand(
-                                    fontSize: ScreenUtil().setSp(9),
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ]),
-                      ),
-                    ],
-                  )
-                ],
-              )
-            ]),
+                const Divider(color: AppPalette.fontColor),
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/dilo-logo.png',
+                      width: ScreenUtil().setWidth(45),
+                      height: ScreenUtil().setHeight(44),
+                    ),
+                    SizedBox(width: ScreenUtil().setWidth(7)),
+                    Column(
+                      children: [
+                        RichText(
+                          textAlign: TextAlign.left,
+                          text: TextSpan(
+                              text: 'DiLo Dev. Studios\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(11),
+                                  fontWeight: FontWeight.w700,
+                                  color: AppPalette.textColor),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: 'Designs & Coding Instructor\n',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                TextSpan(
+                                  text: 'Present',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ]),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ]),
+            ),
           ),
+          SizedBox(
+            height: ScreenUtil().setHeight(22),
+          ),
+          Card(
+            child: Container(
+              padding: REdgeInsets.all(10),
+              height: ScreenUtil().setHeight(174),
+              width: ScreenUtil().setWidth(370),
+              child: Column(children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Work Experience - 3',
+                    style: GoogleFonts.quicksand(
+                        fontWeight: FontWeight.w700,
+                        fontSize: ScreenUtil().setSp(13),
+                        color: AppPalette.fontColor),
+                  ),
+                ),
+                const Divider(color: AppPalette.fontColor),
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/chs-logo.png',
+                      width: ScreenUtil().setWidth(45),
+                      height: ScreenUtil().setHeight(44),
+                    ),
+                    SizedBox(width: ScreenUtil().setWidth(7)),
+                    Column(
+                      children: [
+                        RichText(
+                          textAlign: TextAlign.left,
+                          text: TextSpan(
+                              text: 'Cenad Schools, Rivers - Port Harcourt\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(11),
+                                  fontWeight: FontWeight.w700,
+                                  color: AppPalette.textColor),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: 'Computer Instructor\n',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                TextSpan(
+                                  text: 'September, 2020 - Till Date',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ]),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: ScreenUtil().setHeight(18),
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/ceds-logo.png',
+                      width: ScreenUtil().setWidth(45),
+                      height: ScreenUtil().setHeight(44),
+                    ),
+                    SizedBox(width: ScreenUtil().setWidth(7)),
+                    Column(
+                      children: [
+                        RichText(
+                          textAlign: TextAlign.left,
+                          text: TextSpan(
+                              text: 'Cenad Schools, Rivers - Port Harcourt\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(11),
+                                  fontWeight: FontWeight.w700,
+                                  color: AppPalette.textColor),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: 'Coding Instructor\n',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                TextSpan(
+                                  text: 'September, 2020 - Till Date',
+                                  style: GoogleFonts.quicksand(
+                                      fontSize: ScreenUtil().setSp(9),
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ]),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ]),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//Academical background & Certificates
+class Acadmics extends StatelessWidget {
+  const Acadmics({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Responsive(
+      builder: (context, screenSizeInfo) => Card(
+        child: Container(
+          padding: REdgeInsets.all(10),
+          height: ScreenUtil().setHeight(174),
+          width: ScreenUtil().setWidth(370),
+          child: Column(children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Education',
+                style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w700,
+                    fontSize: ScreenUtil().setSp(13),
+                    color: AppPalette.fontColor),
+              ),
+            ),
+            const Divider(color: AppPalette.fontColor),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/kenpoly-logo.png',
+                  width: ScreenUtil().setWidth(45),
+                  height: ScreenUtil().setHeight(44),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(7)),
+                Column(
+                  children: [
+                    RichText(
+                      textAlign: TextAlign.left,
+                      text: TextSpan(
+                          text: 'Kenule Beeson Saro-Wiwa Polytechnic, Bori\n',
+                          style: GoogleFonts.quicksand(
+                              fontSize: ScreenUtil().setSp(11),
+                              fontWeight: FontWeight.w700,
+                              color: AppPalette.textColor),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'HND Computer Science\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            TextSpan(
+                              text: '2016 - 2017\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ]),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            SizedBox(
+              height: ScreenUtil().setHeight(18),
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/kenpoly-logo.png',
+                  width: ScreenUtil().setWidth(45),
+                  height: ScreenUtil().setHeight(44),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(7)),
+                Column(
+                  children: [
+                    RichText(
+                      textAlign: TextAlign.left,
+                      text: TextSpan(
+                          text: 'Rivers State Polytechnic, Bori\n',
+                          style: GoogleFonts.quicksand(
+                              fontSize: ScreenUtil().setSp(11),
+                              fontWeight: FontWeight.w700,
+                              color: AppPalette.textColor),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'ND Computer Science\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            TextSpan(
+                              text: '2012 - 2014\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ]),
+                    ),
+                  ],
+                )
+              ],
+            )
+          ]),
         ),
-      ],
+      ),
+    );
+  }
+}
+
+//Skills acquired
+class Skills extends StatelessWidget {
+  const Skills({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Responsive(
+      builder: (context, screenSizeInfo) => Card(
+        child: Container(
+          padding: REdgeInsets.all(10),
+          height: ScreenUtil().setHeight(358),
+          width: ScreenUtil().setWidth(370),
+          child: Column(children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Skills',
+                style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w700,
+                    fontSize: ScreenUtil().setSp(13),
+                    color: AppPalette.fontColor),
+              ),
+            ),
+            const Divider(color: AppPalette.fontColor),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/cd-logo.png',
+                  width: ScreenUtil().setWidth(45),
+                  height: ScreenUtil().setHeight(44),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(7)),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Corel Draw',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(11),
+                          color: AppPalette.fontColor),
+                    ),
+                    SizedBox(height: ScreenUtil().setHeight(8)),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(156),
+                      child: LinearPercentIndicator(
+                        barRadius: const Radius.circular(10),
+                        lineHeight: 8,
+                        animation: true,
+                        percent: 90 / 100,
+                        padding: REdgeInsets.all(0),
+                        animationDuration: 800,
+                        progressColor: AppPalette.primaryColor,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: ScreenUtil().setHeight(18)),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/flutter-logo.png',
+                  width: ScreenUtil().setWidth(45),
+                  height: ScreenUtil().setHeight(44),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(7)),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Flutter',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(11),
+                          color: AppPalette.fontColor),
+                    ),
+                    SizedBox(height: ScreenUtil().setHeight(8)),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(156),
+                      child: LinearPercentIndicator(
+                        barRadius: const Radius.circular(10),
+                        lineHeight: 8,
+                        animation: true,
+                        percent: 70 / 100,
+                        padding: REdgeInsets.all(0),
+                        animationDuration: 800,
+                        progressColor: AppPalette.primaryColor,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: ScreenUtil().setHeight(18)),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/figma-logo.png',
+                  width: ScreenUtil().setWidth(45),
+                  height: ScreenUtil().setHeight(44),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(7)),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Figma',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(11),
+                          color: AppPalette.fontColor),
+                    ),
+                    SizedBox(height: ScreenUtil().setHeight(8)),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(156),
+                      child: LinearPercentIndicator(
+                        barRadius: const Radius.circular(10),
+                        lineHeight: 8,
+                        animation: true,
+                        percent: 40 / 100,
+                        padding: REdgeInsets.all(0),
+                        animationDuration: 800,
+                        progressColor: AppPalette.primaryColor,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: ScreenUtil().setHeight(18)),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/ps-logo.png',
+                  width: ScreenUtil().setWidth(45),
+                  height: ScreenUtil().setHeight(44),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(7)),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Adobe Photoshop',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(11),
+                          color: AppPalette.fontColor),
+                    ),
+                    SizedBox(height: ScreenUtil().setHeight(8)),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(156),
+                      child: LinearPercentIndicator(
+                        barRadius: const Radius.circular(10),
+                        lineHeight: 8,
+                        animation: true,
+                        percent: 80 / 100,
+                        padding: REdgeInsets.all(0),
+                        animationDuration: 800,
+                        progressColor: AppPalette.primaryColor,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: ScreenUtil().setHeight(18)),
+            Row(
+              children: [
+                Image.asset(
+                  'assets/illus-logo.png',
+                  width: ScreenUtil().setWidth(45),
+                  height: ScreenUtil().setHeight(44),
+                ),
+                SizedBox(width: ScreenUtil().setWidth(7)),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Adobe Illustrator',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w700,
+                          fontSize: ScreenUtil().setSp(11),
+                          color: AppPalette.fontColor),
+                    ),
+                    SizedBox(height: ScreenUtil().setHeight(8)),
+                    SizedBox(
+                      width: ScreenUtil().setWidth(156),
+                      child: LinearPercentIndicator(
+                        barRadius: const Radius.circular(10),
+                        lineHeight: 8,
+                        animation: true,
+                        percent: 30 / 100,
+                        padding: REdgeInsets.all(0),
+                        animationDuration: 800,
+                        progressColor: AppPalette.primaryColor,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            )
+          ]),
+        ),
+      ),
     );
   }
 }

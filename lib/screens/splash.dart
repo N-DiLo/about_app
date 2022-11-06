@@ -11,22 +11,23 @@ class Splash extends StatefulWidget {
   State<Splash> createState() => _SplashState();
 }
 
-@override
-void initState() {
-  startTimer();
-}
-
-startTimer() {
-  var duration = const Duration(seconds: 3);
-  return Timer(duration, routes);
-}
-
-routes() async {
-  Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (_) => const HomeView()));
-}
-
 class _SplashState extends State<Splash> {
+  @override
+  void initState() {
+    super.initState();
+    splashTimer();
+  }
+
+  splashTimer() {
+    var duration = const Duration(seconds: 3);
+    return Timer(duration, routes);
+  }
+
+  routes() async {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => const HomeView()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

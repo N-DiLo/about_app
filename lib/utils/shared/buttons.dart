@@ -1,4 +1,5 @@
 import 'package:about_app/utils/constant/bottom_sheet.dart';
+import 'package:about_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,21 +23,23 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        elevation: 2,
-        padding: REdgeInsets.all(13),
-        backgroundColor: primary!,
-        foregroundColor: surfaceColor,
-        textStyle: GoogleFonts.inter(
-            fontWeight: FontWeight.w700, fontSize: ScreenUtil().setSp(20)),
-        minimumSize:
-            Size(ScreenUtil().setWidth(335), ScreenUtil().setHeight(76)),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(ScreenUtil().radius(15))),
+    return Responsive(
+      builder: (context, screenSizeInfo) => ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 2,
+          padding: REdgeInsets.all(13),
+          backgroundColor: primary!,
+          foregroundColor: surfaceColor,
+          textStyle: GoogleFonts.inter(
+              fontWeight: FontWeight.w700, fontSize: ScreenUtil().setSp(20)),
+          minimumSize:
+              Size(ScreenUtil().setWidth(335), ScreenUtil().setHeight(76)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(ScreenUtil().radius(15))),
+        ),
+        onPressed: onPressed,
+        child: fill,
       ),
-      onPressed: onPressed,
-      child: fill,
     );
   }
 }
@@ -56,18 +59,20 @@ class SocialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        elevation: 2,
-        padding: REdgeInsets.all(13),
-        backgroundColor: primary!,
-        minimumSize:
-            Size(ScreenUtil().setWidth(57), ScreenUtil().setHeight(52)),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(ScreenUtil().radius(10))),
+    return Responsive(
+      builder: (context, screenSizeInfo) => ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 2,
+          padding: REdgeInsets.all(13),
+          backgroundColor: primary!,
+          minimumSize:
+              Size(ScreenUtil().setWidth(57), ScreenUtil().setHeight(52)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(ScreenUtil().radius(10))),
+        ),
+        onPressed: onPressed,
+        child: fill,
       ),
-      onPressed: onPressed,
-      child: fill,
     );
   }
 }
