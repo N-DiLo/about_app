@@ -39,8 +39,49 @@ class _AppSettingsState extends State<AppSettings> {
         ),
         Padding(
             padding: const EdgeInsets.all(28.0),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start, children: [])),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              SizedBox(height: ScreenUtil().setHeight(20)),
+              Text(
+                'CHANGE APP COLOR MODE',
+                style: GoogleFonts.montserrat(
+                    fontSize: ScreenUtil().setSp(15),
+                    fontWeight: FontWeight.w700,
+                    color: AppPalette.fontColor),
+              ),
+              SizedBox(height: ScreenUtil().setHeight(38)),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Column(
+                  children: [
+                    Image.asset('assets/dark-mode.png',
+                        width: ScreenUtil().setWidth(99),
+                        height: ScreenUtil().setHeight(116)),
+                    SizedBox(height: ScreenUtil().setHeight(18)),
+                    Text(
+                      'Dark Mode',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w600,
+                          fontSize: ScreenUtil().setSp(14)),
+                    )
+                  ],
+                ),
+                SizedBox(width: ScreenUtil().setWidth(62)),
+                Column(
+                  children: [
+                    Image.asset('assets/light-mode.png',
+                        width: ScreenUtil().setWidth(99),
+                        height: ScreenUtil().setHeight(116)),
+                    SizedBox(height: ScreenUtil().setHeight(18)),
+                    Text(
+                      'Light Mode',
+                      style: GoogleFonts.montserrat(
+                          fontWeight: FontWeight.w600,
+                          fontSize: ScreenUtil().setSp(14)),
+                    )
+                  ],
+                ),
+              ])
+            ])),
       ],
     );
   }

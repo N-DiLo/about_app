@@ -7,6 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() {
   runApp(const MyApp());
 
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.landscapeRight
+  ]);
+
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarIconBrightness: Brightness.light,
     statusBarBrightness: Brightness.dark,

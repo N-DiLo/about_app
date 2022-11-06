@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 enum DeviceScreen { mobileLayout, tabletLayout }
 
 class ScreenSizeInfo {
+  final Orientation? orientation;
   final DeviceScreen? deviceScreen;
   final Size? screenSize;
   final Size? localWidgetSize;
 
-  ScreenSizeInfo({this.deviceScreen, this.screenSize, this.localWidgetSize});
+  ScreenSizeInfo(
+      {this.orientation,
+      this.deviceScreen,
+      this.screenSize,
+      this.localWidgetSize});
 }
 
 //Creating app responsive architecture with DeviceType breakpoints
@@ -24,6 +29,7 @@ class Responsive extends StatelessWidget {
       var screenSizeInfo = ScreenSizeInfo(
           deviceScreen: getDeviceType(mediaQuery),
           screenSize: mediaQuery.size,
+          orientation: mediaQuery.orientation,
           localWidgetSize: Size(constraints.maxWidth, constraints.maxHeight));
       return builder(context, screenSizeInfo);
     });
@@ -32,7 +38,13 @@ class Responsive extends StatelessWidget {
 
 //Setting DeviceTypes using breakpoints
 DeviceScreen getDeviceType(MediaQueryData mediaQuery) {
+  var orientation = mediaQuery.orientation;
   double deviceWidth = mediaQuery.size.shortestSide;
+  if (orientation == Orientation.landscape) {
+    deviceWidth = mediaQuery.size.height;
+  } else {
+    deviceWidth = mediaQuery.size.width;
+  }
 
   if (deviceWidth > 600) {
     return DeviceScreen.tabletLayout;
@@ -42,18 +54,18 @@ DeviceScreen getDeviceType(MediaQueryData mediaQuery) {
 
 //Setting ScreenLayout based on breakpoints provided by responsive builder
 class ScreenLayout extends StatelessWidget {
-  final Widget mobile;
-  final Widget? tablet;
-  const ScreenLayout({Key? key, this.tablet, required this.mobile})
-      : super(key: key);
+  final Widget? mobile;
+  const ScreenLayout({Key? key, this.mobile}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(builder: ((context, screenSizeInfo) {
-      if (screenSizeInfo.deviceScreen == DeviceScreen.mobileLayout) {
-        return mobile;
-      }
-      return mobile;
-    }));
+    return Responsive(
+      builder: ((context, screenSizeInfo) {
+        if (screenSizeInfo.deviceScreen == DeviceScreen.mobileLayout) {
+          return mobile!;
+        }
+        return mobile!;
+      }),
+    );
   }
 }

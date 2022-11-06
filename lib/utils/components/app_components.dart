@@ -19,17 +19,20 @@ class HomeComponents extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: ScreenUtil().setHeight(10)),
-        Container(
-          width: ScreenUtil().setHeight(119),
-          height: ScreenUtil().setWidth(119),
-          decoration: BoxDecoration(
-              border: Border.all(
-                  width: ScreenUtil().setWidth(6),
-                  color: AppPalette.primaryColor),
-              shape: BoxShape.circle,
-              color: AppPalette.whiteColor),
-          child: const CircleAvatar(
-              backgroundImage: AssetImage('assets/profile.jpg')),
+        AspectRatio(
+          aspectRatio: 2.8,
+          child: Container(
+            width: ScreenUtil().setWidth(50),
+            height: ScreenUtil().setHeight(50),
+            decoration: BoxDecoration(
+                image: const DecorationImage(
+                    image: AssetImage('assets/profile.jpg')),
+                border: Border.all(
+                    width: ScreenUtil().setWidth(6),
+                    color: AppPalette.primaryColor),
+                shape: BoxShape.circle,
+                color: AppPalette.whiteColor),
+          ),
         ),
         SizedBox(height: ScreenUtil().setHeight(16)),
         RichText(
@@ -284,7 +287,7 @@ class SocialComponent extends StatelessWidget {
           height: ScreenUtil().setHeight(52),
           width: ScreenUtil().setWidth(57),
           child: Link(
-              target: LinkTarget.self,
+              target: LinkTarget.blank,
               uri: Uri.parse('https://twitter.com/nwanedilobu'),
               builder: (context, followLink) => SocialButton(
                   primary: AppPalette.buttonColor,
@@ -299,7 +302,7 @@ class SocialComponent extends StatelessWidget {
           height: ScreenUtil().setHeight(52),
           width: ScreenUtil().setWidth(57),
           child: Link(
-              target: LinkTarget.self,
+              target: LinkTarget.blank,
               uri: Uri.parse('https://linkedin.com/nwanedilobu'),
               builder: (context, followLink) => SocialButton(
                   primary: AppPalette.buttonColor,
@@ -314,7 +317,7 @@ class SocialComponent extends StatelessWidget {
           height: ScreenUtil().setHeight(52),
           width: ScreenUtil().setWidth(57),
           child: Link(
-              target: LinkTarget.self,
+              target: LinkTarget.blank,
               uri: Uri.parse('https://facebook.com/nwanedilobu'),
               builder: (context, followLink) => SocialButton(
                   primary: AppPalette.buttonColor,
@@ -329,7 +332,7 @@ class SocialComponent extends StatelessWidget {
           height: ScreenUtil().setHeight(52),
           width: ScreenUtil().setWidth(57),
           child: Link(
-              target: LinkTarget.self,
+              target: LinkTarget.blank,
               uri: Uri.parse('https://github.com/N-DiLo'),
               builder: (context, followLink) => SocialButton(
                   primary: AppPalette.buttonColor,
@@ -480,7 +483,7 @@ class ExpComponents extends StatelessWidget {
                                 color: AppPalette.textColor),
                             children: <TextSpan>[
                               TextSpan(
-                                text: 'Mobile Lead\n',
+                                text: 'Mobile Developer\n',
                                 style: GoogleFonts.quicksand(
                                     fontSize: ScreenUtil().setSp(9),
                                     fontWeight: FontWeight.w600),

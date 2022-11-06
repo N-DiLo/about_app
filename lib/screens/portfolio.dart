@@ -1,5 +1,6 @@
 import 'package:about_app/utils/components/app_components.dart';
 import 'package:about_app/utils/constant/app_color.dart';
+import 'package:about_app/utils/responsive.dart';
 import 'package:about_app/utils/shared/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,28 +16,30 @@ class PortFolio extends StatefulWidget {
 class _PortFolioState extends State<PortFolio> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        backgroundColor: AppPalette.primaryColor,
-        title: Text(
-          'About Me',
-          style: GoogleFonts.quicksand(
-              fontSize: ScreenUtil().setSp(17), fontWeight: FontWeight.w700),
+    return ScreenLayout(
+      mobile: Scaffold(
+        appBar: AppBar(
+          centerTitle: false,
+          backgroundColor: AppPalette.primaryColor,
+          title: Text(
+            'About Me',
+            style: GoogleFonts.quicksand(
+                fontSize: ScreenUtil().setSp(17), fontWeight: FontWeight.w700),
+          ),
         ),
-      ),
-      floatingActionButton: const FAB(),
-      backgroundColor: AppPalette.whiteColor,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: REdgeInsets.symmetric(horizontal: 28),
-          child: Column(
-            children: [
-              SizedBox(height: ScreenUtil().setHeight(22)),
-              const SocialComponent(), // Social Components
-              SizedBox(height: ScreenUtil().setHeight(22)),
-              const AboutText()
-            ],
+        floatingActionButton: const FAB(),
+        backgroundColor: AppPalette.whiteColor,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: REdgeInsets.symmetric(horizontal: 28),
+            child: Column(
+              children: [
+                SizedBox(height: ScreenUtil().setHeight(22)),
+                const SocialComponent(), // Social Components
+                SizedBox(height: ScreenUtil().setHeight(22)),
+                const AboutText()
+              ],
+            ),
           ),
         ),
       ),
