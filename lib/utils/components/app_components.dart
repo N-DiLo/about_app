@@ -1,6 +1,6 @@
-import 'package:about_app/screens/background.dart';
-import 'package:about_app/screens/experience.dart';
-import 'package:about_app/screens/portfolio.dart';
+import 'package:about_app/screens/portrait/background.dart';
+import 'package:about_app/screens/portrait/experience.dart';
+import 'package:about_app/screens/portrait/portfolio.dart';
 import 'package:about_app/utils/responsive.dart';
 import 'package:about_app/utils/shared/buttons.dart';
 import 'package:flutter/material.dart';

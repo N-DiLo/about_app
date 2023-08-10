@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:about_app/screens/home.dart';
+import 'package:about_app/screens/portrait/home.dart';
 import 'package:about_app/utils/constant/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
