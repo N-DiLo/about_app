@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         home: const Splash(),
         //
         routes: {
-          Background.routeName: (ctx) => const Background(),
+          Background.routeName: (ctx) => Background(),
           ExpScreen.routeName: (ctx) => const ExpScreen(),
           PortFolio.routeName: (ctx) => const PortFolio(),
         },

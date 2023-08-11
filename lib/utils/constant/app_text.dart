@@ -70,3 +70,27 @@ class DescText extends StatelessWidget {
     );
   }
 }
+
+class AppBarText extends StatelessWidget {
+  String text = '';
+  Color? color;
+
+  AppBarText({
+    super.key,
+    this.color,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      textScaleFactor: MediaQuery.of(context).textScaleFactor,
+      text,
+      style: GoogleFonts.montserrat(
+        fontSize: 17,
+        fontWeight: FontWeight.w700,
+        color: color,
+      ),
+    );
+  }
+}

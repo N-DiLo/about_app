@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:about_app/utils/constant/app_text.dart';
 import 'package:about_app/utils/constant/bottom_sheet.dart';
 import 'package:about_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -7,44 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import '../constant/app_color.dart';
-
-class AppButton extends StatelessWidget {
-  final Color? primary;
-  final Color? surfaceColor;
-  final Widget? fill;
-
-  final Function() onPressed;
-
-  const AppButton(
-      {Key? key,
-      required this.primary,
-      required this.fill,
-      this.surfaceColor,
-      required this.onPressed})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Responsive(
-      builder: (context, screenSizeInfo) => ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          elevation: 2,
-          padding: REdgeInsets.all(13),
-          backgroundColor: primary!,
-          foregroundColor: surfaceColor,
-          textStyle: GoogleFonts.inter(
-              fontWeight: FontWeight.w700, fontSize: ScreenUtil().setSp(20)),
-          minimumSize:
-              Size(ScreenUtil().setWidth(335), ScreenUtil().setHeight(76)),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(ScreenUtil().radius(15))),
-        ),
-        onPressed: onPressed,
-        child: fill,
-      ),
-    );
-  }
-}
 
 class AppBtn extends StatelessWidget {
   Color? color;
@@ -141,12 +104,31 @@ class FAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-        backgroundColor: AppPalette.primaryColor,
+        backgroundColor: primaryColor,
         onPressed: (() => showModalBottomSheet(
             context: context, builder: (_) => const AppSettings())),
-        child: Icon(
+        child: const Icon(
           Iconsax.setting_2,
-          size: ScreenUtil().radius(30),
+          size: 30,
         ));
+  }
+}
+
+class LandscapeFAB extends StatelessWidget {
+  const LandscapeFAB({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.extended(
+      backgroundColor: primaryColor,
+      onPressed: (() => showModalBottomSheet(
+          context: context, builder: (_) => const AppSettings())),
+      label: AppText(
+        text: 'Settings',
+        fontSize: 15,
+        color: whiteColor,
+        fontWeight: FontWeight.w500,
+      ),
+    );
   }
 }

@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:url_launcher/link.dart';
+import '../../screens/landscape/background.dart/background_view_model.dart';
 import '../../screens/landscape/home/home_view_model.dart';
 import '../constant/app_color.dart';
 import '../constant/app_text.dart';
@@ -404,7 +405,7 @@ class ExpComponents extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/rs-logo.png',
+                      rsLogo,
                       width: ScreenUtil().setWidth(45),
                       height: ScreenUtil().setHeight(44),
                     ),
@@ -461,7 +462,7 @@ class ExpComponents extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/dilo-logo.png',
+                      diloLogo,
                       width: ScreenUtil().setWidth(45),
                       height: ScreenUtil().setHeight(44),
                     ),
@@ -521,7 +522,7 @@ class ExpComponents extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/chs-logo.png',
+                      chsLogo,
                       width: ScreenUtil().setWidth(45),
                       height: ScreenUtil().setHeight(44),
                     ),
@@ -561,7 +562,7 @@ class ExpComponents extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/ceds-logo.png',
+                      cedsLogo,
                       width: ScreenUtil().setWidth(45),
                       height: ScreenUtil().setHeight(44),
                     ),
@@ -606,106 +607,99 @@ class ExpComponents extends StatelessWidget {
 
 //Academical background & Certificates
 class Acadmics extends StatelessWidget {
-  const Acadmics({super.key});
+  Acadmics({super.key});
+
+  final bckgrndModel = BackgrndModel();
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(
-      builder: (context, screenSizeInfo) => Card(
-        child: Container(
-          padding: REdgeInsets.all(10),
-          height: ScreenUtil().setHeight(174),
-          width: ScreenUtil().setWidth(370),
-          child: Column(children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Education',
-                style: GoogleFonts.quicksand(
-                    fontWeight: FontWeight.w700,
-                    fontSize: ScreenUtil().setSp(13),
-                    color: AppPalette.fontColor),
-              ),
+    final mHeight = MediaQuery.of(context).size.height;
+    final mWidth = MediaQuery.of(context).size.width;
+
+    return Card(
+      elevation: 2,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        height: mHeight * 0.22,
+        width: mWidth,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DescText(
+              text: bckgrndModel.education,
+              color: fontColor,
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
             ),
-            const Divider(color: AppPalette.fontColor),
+            const Divider(
+              color: fontColor,
+              thickness: 1,
+            ),
             Row(
               children: [
                 Image.asset(
-                  'assets/kenpoly-logo.png',
-                  width: ScreenUtil().setWidth(45),
-                  height: ScreenUtil().setHeight(44),
+                  kenpolyLogo,
+                  width: 45,
+                  height: 45,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(7)),
+                SizedBox(width: mWidth * 0.03),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RichText(
-                      textAlign: TextAlign.left,
-                      text: TextSpan(
-                          text: 'Kenule Beeson Saro-Wiwa Polytechnic, Bori\n',
-                          style: GoogleFonts.quicksand(
-                              fontSize: ScreenUtil().setSp(11),
-                              fontWeight: FontWeight.w700,
-                              color: AppPalette.textColor),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'HND Computer Science\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            TextSpan(
-                              text: '2016 - 2017\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ]),
+                    DescText(
+                      softWrap: true,
+                      text: bckgrndModel.school,
+                      color: textColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    DescText(
+                      text: bckgrndModel.degree,
+                      color: textColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
                     ),
                   ],
                 )
               ],
             ),
             SizedBox(
-              height: ScreenUtil().setHeight(18),
+              height: mHeight * 0.02,
             ),
             Row(
               children: [
                 Image.asset(
-                  'assets/kenpoly-logo.png',
-                  width: ScreenUtil().setWidth(45),
-                  height: ScreenUtil().setHeight(44),
+                  kenpolyLogo,
+                  width: 45,
+                  height: 45,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(7)),
+                SizedBox(width: mWidth * 0.03),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RichText(
-                      textAlign: TextAlign.left,
-                      text: TextSpan(
-                          text: 'Rivers State Polytechnic, Bori\n',
-                          style: GoogleFonts.quicksand(
-                              fontSize: ScreenUtil().setSp(11),
-                              fontWeight: FontWeight.w700,
-                              color: AppPalette.textColor),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'ND Computer Science\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            TextSpan(
-                              text: '2012 - 2014\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ]),
+                    DescText(
+                      text: bckgrndModel.schl,
+                      color: textColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    DescText(
+                      text: bckgrndModel.deg,
+                      color: textColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    DescText(
+                      text: bckgrndModel.degDate,
+                      color: textColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
                     ),
                   ],
-                )
+                ),
               ],
-            )
-          ]),
+            ),
+          ],
         ),
       ),
     );
@@ -714,208 +708,218 @@ class Acadmics extends StatelessWidget {
 
 //Skills acquired
 class Skills extends StatelessWidget {
-  const Skills({super.key});
+  Skills({super.key});
+
+  final bckgrndModel = BackgrndModel();
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(
-      builder: (context, screenSizeInfo) => Card(
-        child: Container(
-          padding: REdgeInsets.all(10),
-          height: ScreenUtil().setHeight(358),
-          width: ScreenUtil().setWidth(370),
-          child: Column(children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Skills',
-                style: GoogleFonts.quicksand(
-                    fontWeight: FontWeight.w700,
-                    fontSize: ScreenUtil().setSp(13),
-                    color: AppPalette.fontColor),
-              ),
+    final mHeight = MediaQuery.of(context).size.height;
+    final mWidth = MediaQuery.of(context).size.width;
+    return Card(
+      elevation: 2,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        height: mHeight * 0.48,
+        width: mWidth,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DescText(
+              text: bckgrndModel.skills,
+              color: fontColor,
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
             ),
-            const Divider(color: AppPalette.fontColor),
+            const Divider(
+              color: fontColor,
+              thickness: 1,
+            ),
             Row(
               children: [
                 Image.asset(
-                  'assets/cd-logo.png',
-                  width: ScreenUtil().setWidth(45),
-                  height: ScreenUtil().setHeight(44),
+                  cdLogo,
+                  width: 45,
+                  height: 45,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(7)),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Corel Draw',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(11),
-                          color: AppPalette.fontColor),
+                    AppText(
+                      text: bckgrndModel.corelDraw,
+                      color: fontColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
                     ),
-                    SizedBox(height: ScreenUtil().setHeight(8)),
                     SizedBox(
-                      width: ScreenUtil().setWidth(156),
+                      width: mWidth * 0.4,
+                      height: mHeight * 0.025,
                       child: LinearPercentIndicator(
                         barRadius: const Radius.circular(10),
                         lineHeight: 8,
                         animation: true,
                         percent: 90 / 100,
-                        padding: REdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         animationDuration: 800,
-                        progressColor: AppPalette.primaryColor,
+                        progressColor: primaryColor,
                       ),
                     )
                   ],
                 )
               ],
             ),
-            SizedBox(height: ScreenUtil().setHeight(18)),
+            SizedBox(height: mHeight * 0.025),
             Row(
               children: [
                 Image.asset(
-                  'assets/flutter-logo.png',
-                  width: ScreenUtil().setWidth(45),
-                  height: ScreenUtil().setHeight(44),
+                  flutterLogo,
+                  width: 45,
+                  height: 45,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(7)),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Flutter',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(11),
-                          color: AppPalette.fontColor),
+                    AppText(
+                      text: bckgrndModel.flutter,
+                      color: fontColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
                     ),
-                    SizedBox(height: ScreenUtil().setHeight(8)),
                     SizedBox(
-                      width: ScreenUtil().setWidth(156),
+                      width: mWidth * 0.4,
+                      height: mHeight * 0.025,
                       child: LinearPercentIndicator(
                         barRadius: const Radius.circular(10),
                         lineHeight: 8,
                         animation: true,
                         percent: 70 / 100,
-                        padding: REdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         animationDuration: 800,
-                        progressColor: AppPalette.primaryColor,
+                        progressColor: primaryColor,
                       ),
                     )
                   ],
                 )
               ],
             ),
-            SizedBox(height: ScreenUtil().setHeight(18)),
+            SizedBox(height: mHeight * 0.025),
             Row(
               children: [
                 Image.asset(
-                  'assets/figma-logo.png',
-                  width: ScreenUtil().setWidth(45),
-                  height: ScreenUtil().setHeight(44),
+                  figmaLogo,
+                  width: 45,
+                  height: 45,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(7)),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Figma',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(11),
-                          color: AppPalette.fontColor),
+                    AppText(
+                      text: bckgrndModel.figma,
+                      color: fontColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
                     ),
-                    SizedBox(height: ScreenUtil().setHeight(8)),
                     SizedBox(
-                      width: ScreenUtil().setWidth(156),
+                      width: mWidth * 0.4,
+                      height: mHeight * 0.025,
                       child: LinearPercentIndicator(
                         barRadius: const Radius.circular(10),
                         lineHeight: 8,
                         animation: true,
-                        percent: 40 / 100,
-                        padding: REdgeInsets.all(0),
+                        percent: 45 / 100,
+                        padding: const EdgeInsets.all(0),
                         animationDuration: 800,
-                        progressColor: AppPalette.primaryColor,
+                        progressColor: primaryColor,
                       ),
                     )
                   ],
                 )
               ],
             ),
-            SizedBox(height: ScreenUtil().setHeight(18)),
+            SizedBox(height: mHeight * 0.025),
             Row(
               children: [
                 Image.asset(
-                  'assets/ps-logo.png',
-                  width: ScreenUtil().setWidth(45),
-                  height: ScreenUtil().setHeight(44),
+                  psLogo,
+                  width: 45,
+                  height: 45,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(7)),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Adobe Photoshop',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(11),
-                          color: AppPalette.fontColor),
+                    AppText(
+                      text: bckgrndModel.photoshop,
+                      color: fontColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
                     ),
-                    SizedBox(height: ScreenUtil().setHeight(8)),
                     SizedBox(
-                      width: ScreenUtil().setWidth(156),
+                      width: mWidth * 0.4,
+                      height: mHeight * 0.025,
                       child: LinearPercentIndicator(
                         barRadius: const Radius.circular(10),
                         lineHeight: 8,
                         animation: true,
                         percent: 80 / 100,
-                        padding: REdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         animationDuration: 800,
-                        progressColor: AppPalette.primaryColor,
+                        progressColor: primaryColor,
                       ),
                     )
                   ],
                 )
               ],
             ),
-            SizedBox(height: ScreenUtil().setHeight(18)),
+            SizedBox(height: mHeight * 0.025),
             Row(
               children: [
                 Image.asset(
-                  'assets/illus-logo.png',
-                  width: ScreenUtil().setWidth(45),
-                  height: ScreenUtil().setHeight(44),
+                  illusLogo,
+                  width: 45,
+                  height: 45,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(7)),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Adobe Illustrator',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(11),
-                          color: AppPalette.fontColor),
+                    AppText(
+                      text: bckgrndModel.illustrator,
+                      color: fontColor,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
                     ),
-                    SizedBox(height: ScreenUtil().setHeight(8)),
                     SizedBox(
-                      width: ScreenUtil().setWidth(156),
+                      width: mWidth * 0.4,
+                      height: mHeight * 0.025,
                       child: LinearPercentIndicator(
                         barRadius: const Radius.circular(10),
                         lineHeight: 8,
                         animation: true,
-                        percent: 30 / 100,
-                        padding: REdgeInsets.all(0),
+                        percent: 35 / 100,
+                        padding: const EdgeInsets.all(0),
                         animationDuration: 800,
-                        progressColor: AppPalette.primaryColor,
+                        progressColor: primaryColor,
                       ),
                     )
                   ],
                 )
               ],
-            )
-          ]),
+            ),
+          ],
         ),
       ),
     );
