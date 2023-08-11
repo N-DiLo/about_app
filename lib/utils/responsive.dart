@@ -54,18 +54,35 @@ DeviceScreen getDeviceType(MediaQueryData mediaQuery) {
 
 //Setting ScreenLayout based on breakpoints provided by responsive builder
 class ScreenLayout extends StatelessWidget {
-  final Widget? mobile;
-  const ScreenLayout({Key? key, this.mobile}) : super(key: key);
+  final Widget? mobile, tablet;
+  const ScreenLayout({Key? key, this.mobile, this.tablet}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Responsive(
       builder: ((context, screenSizeInfo) {
-        if (screenSizeInfo.deviceScreen == DeviceScreen.mobileLayout) {
-          return mobile!;
+        if (screenSizeInfo.deviceScreen == DeviceScreen.tabletLayout) {
+          if (tablet != null) {
+            return tablet!;
+          }
         }
+
         return mobile!;
       }),
     );
+  }
+}
+
+class OrientationLayout extends StatelessWidget {
+  final Widget? landscape, portrait;
+  const OrientationLayout({super.key, this.landscape, this.portrait});
+
+  @override
+  Widget build(BuildContext context) {
+    var orientation = MediaQuery.of(context).orientation;
+    if (orientation == Orientation.landscape) {
+      return landscape!;
+    }
+    return portrait!;
   }
 }

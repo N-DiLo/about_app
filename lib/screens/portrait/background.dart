@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class Background extends StatelessWidget {
   const Background({super.key});
+  static const routeName = 'education';
 
   @override
   Widget build(BuildContext context) {

@@ -21,7 +21,7 @@ const primaryColor = Color(0xffD42A9A);
 const defaultColor = Color(0xff000000);
 const whiteColor = Color(0xffFFFFFF);
 const textColor = Color(0xff1E1E1E);
-const textColor1 = Color(0xff2F2E41);
+const minTextColor = Color(0xff2F2E41);
 const fontColor = Color(0xff242222);
 const buttonColor = Color(0xffF7F8FA);
 

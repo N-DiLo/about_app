@@ -1,3 +1,6 @@
+import 'package:about_app/screens/portrait/background.dart';
+import 'package:about_app/screens/portrait/experience.dart';
+import 'package:about_app/screens/portrait/portfolio.dart';
 import 'package:about_app/screens/splash.dart';
 import 'package:about_app/utils/constant/app_color.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +32,15 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       minTextAdapt: true,
       designSize: const Size(375, 812),
-      builder: (_, child) => const MaterialApp(
+      builder: (_, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Splash(),
+        home: const Splash(),
+        //
+        routes: {
+          Background.routeName: (ctx) => const Background(),
+          ExpScreen.routeName: (ctx) => const ExpScreen(),
+          PortFolio.routeName: (ctx) => const PortFolio(),
+        },
       ),
     );
   }

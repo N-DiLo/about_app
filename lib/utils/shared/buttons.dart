@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:about_app/utils/constant/bottom_sheet.dart';
 import 'package:about_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +41,62 @@ class AppButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         child: fill,
+      ),
+    );
+  }
+}
+
+class AppBtn extends StatelessWidget {
+  Color? color;
+  Widget? leading;
+  void Function() onTap;
+  String title;
+  String? subtitle;
+  TextStyle? style;
+
+  AppBtn(
+      {super.key,
+      this.leading,
+      this.color,
+      required this.onTap,
+      this.style,
+      this.subtitle,
+      required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    final mHeight = MediaQuery.of(context).size.height;
+    return AnimatedContainer(
+      duration: const Duration(
+        milliseconds: 300,
+      ),
+      width: double.infinity,
+      height: mHeight * 0.09,
+      decoration: BoxDecoration(
+        boxShadow: const [
+          BoxShadow(color: minTextColor, offset: Offset(0.5, 0.4))
+        ],
+        color: buttonColor,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: ListTile(
+        onTap: onTap,
+        minLeadingWidth: 10,
+        titleAlignment: ListTileTitleAlignment.center,
+        title: Text(title),
+        leading: leading,
+        subtitle: Text(subtitle ?? ''),
+        tileColor: color,
+        titleTextStyle: GoogleFonts.montserrat(
+          fontWeight: FontWeight.w700,
+          fontSize: 14,
+          color: fontColor,
+        ),
+        subtitleTextStyle: GoogleFonts.montserrat(
+          fontSize: 10,
+          fontWeight: FontWeight.w400,
+          color: fontColor,
+        ),
       ),
     );
   }

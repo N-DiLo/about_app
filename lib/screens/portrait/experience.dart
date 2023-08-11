@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ExpScreen extends StatelessWidget {
   const ExpScreen({super.key});
+  static const routeName = 'expereince';
 
   @override
   Widget build(BuildContext context) {

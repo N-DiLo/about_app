@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class PortFolio extends StatefulWidget {
   const PortFolio({super.key});
+  static const routeName = 'portfolio';
 
   @override
   State<PortFolio> createState() => _PortFolioState();
