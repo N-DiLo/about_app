@@ -1,6 +1,3 @@
-import 'package:about_app/screens/portrait/background.dart';
-import 'package:about_app/screens/portrait/experience.dart';
-import 'package:about_app/screens/portrait/portfolio.dart';
 import 'package:about_app/utils/responsive.dart';
 import 'package:about_app/utils/shared/buttons.dart';
 import 'package:flutter/material.dart';
@@ -10,137 +7,149 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:url_launcher/link.dart';
+import '../../screens/landscape/home/home_view_model.dart';
 import '../constant/app_color.dart';
+import '../constant/app_text.dart';
 
 //Components used for the Home screen
 class HomeComponents extends StatelessWidget {
-  const HomeComponents({super.key});
+  HomeComponents({super.key});
+
+  final homeModel = HomeViewModel();
 
   @override
   Widget build(BuildContext context) {
+    final mWidth = MediaQuery.of(context).size.width;
+    final mHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        SizedBox(height: ScreenUtil().setHeight(10)),
-        Responsive(
-          builder: (BuildContext context, ScreenSizeInfo screenSizeInfo) =>
-              Container(
-            width: ScreenUtil().setWidth(119),
-            height: ScreenUtil().setHeight(119),
-            decoration: BoxDecoration(
-                image: const DecorationImage(
-                    image: AssetImage('assets/profile.jpg')),
-                border: Border.all(
-                    width: ScreenUtil().setWidth(5),
-                    color: AppPalette.primaryColor),
-                shape: BoxShape.circle,
-                color: AppPalette.whiteColor),
+        SizedBox(height: mHeight * 0.03),
+        Container(
+          width: mWidth,
+          height: mHeight * 0.16,
+          decoration: BoxDecoration(
+            image: const DecorationImage(image: AssetImage(profileImage)),
+            border: Border.all(width: 5, color: primaryColor),
+            shape: BoxShape.circle,
           ),
         ),
-        SizedBox(height: ScreenUtil().setHeight(16)),
-        Responsive(
-          builder: (BuildContext context, ScreenSizeInfo screenSizeInfo) =>
-              RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-                text: 'Egbekwu Nwanedilobu \n',
-                style: GoogleFonts.montserrat(
-                    fontSize: ScreenUtil().setSp(20),
-                    fontWeight: FontWeight.w700,
-                    color: AppPalette.textColor),
-                children: <TextSpan>[
-                  TextSpan(
-                    text:
-                        'Graduate Computer Science, Mobile Developer,\n UI/UX Designer, Graphics Designer & Computer Instructor',
-                    style: GoogleFonts.quicksand(
-                        fontSize: ScreenUtil().setSp(12),
-                        fontWeight: FontWeight.w300),
-                  )
-                ]),
+        SizedBox(height: mHeight * 0.02),
+        AppText(
+          text: homeModel.name,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          color: textColor,
+        ),
+        DescText(
+          text: homeModel.description,
+          softWrap: true,
+          textAlign: TextAlign.center,
+          fontSize: 12,
+          fontWeight: FontWeight.w300,
+        ),
+        SizedBox(height: mHeight * 0.016),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Iconsax.calendar5,
+                  color: minTextColor,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: mWidth * 0.004,
+                ),
+                DescText(
+                  text: homeModel.birth,
+                  color: defaultColor,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w400,
+                ),
+                SizedBox(width: mWidth * 0.04),
+                const Icon(
+                  Iconsax.messages_15,
+                  color: minTextColor,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: mWidth * 0.004,
+                ),
+                DescText(
+                  text: homeModel.mail,
+                  color: defaultColor,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w400,
+                ),
+              ],
+            ),
+            SizedBox(height: mHeight * 0.008),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Iconsax.location5,
+                  color: minTextColor,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: mWidth * 0.004,
+                ),
+                DescText(
+                  text: homeModel.location,
+                  color: defaultColor,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w400,
+                ),
+                SizedBox(width: mWidth * 0.05),
+                const Icon(
+                  Iconsax.call5,
+                  color: minTextColor,
+                  size: 20,
+                ),
+                SizedBox(
+                  width: mWidth * 0.004,
+                ),
+                DescText(
+                  softWrap: true,
+                  text: homeModel.phone,
+                  color: defaultColor,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w400,
+                ),
+              ],
+            ),
+            SizedBox(height: mHeight * 0.016),
+            const Divider(color: fontColor, thickness: 1.5),
+            SizedBox(height: mHeight * 0.012),
+          ],
+        ),
+        Card(
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            height: mHeight * 0.12,
+            width: mWidth,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                DescText(
+                    text: homeModel.objective,
+                    color: fontColor,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700),
+                DescText(
+                    text: homeModel.obj,
+                    color: fontColor,
+                    softWrap: true,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400),
+              ],
+            ),
           ),
         ),
-        SizedBox(height: ScreenUtil().setHeight(16)),
-        Responsive(
-          builder: (BuildContext context, ScreenSizeInfo screenSizeInfo) =>
-              Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Iconsax.calendar5,
-                    color: AppPalette.textColor1,
-                    size: ScreenUtil().radius(20),
-                  ),
-                  SizedBox(
-                    width: ScreenUtil().setWidth(4),
-                  ),
-                  Text(
-                    'January 28',
-                    style: GoogleFonts.quicksand(
-                        fontSize: ScreenUtil().setSp(10),
-                        color: AppPalette.defaultColor,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(width: ScreenUtil().setWidth(35)),
-                  Icon(
-                    Iconsax.messages_15,
-                    color: AppPalette.textColor1,
-                    size: ScreenUtil().radius(20),
-                  ),
-                  SizedBox(
-                    width: ScreenUtil().setWidth(4),
-                  ),
-                  Text(
-                    'egbekwunwanedilobu@gmail.com',
-                    style: GoogleFonts.quicksand(
-                        fontSize: ScreenUtil().setSp(10),
-                        color: AppPalette.defaultColor,
-                        fontWeight: FontWeight.w400),
-                  )
-                ],
-              ),
-              SizedBox(height: ScreenUtil().setHeight(5)),
-              Row(
-                children: [
-                  Icon(
-                    Iconsax.location5,
-                    color: AppPalette.textColor1,
-                    size: ScreenUtil().radius(20),
-                  ),
-                  SizedBox(
-                    width: ScreenUtil().setWidth(4),
-                  ),
-                  Text(
-                    'Rivers, Port Harcourt',
-                    style: GoogleFonts.quicksand(
-                        fontSize: ScreenUtil().setSp(10),
-                        color: AppPalette.defaultColor,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(width: ScreenUtil().setWidth(42)),
-                  Icon(
-                    Iconsax.call5,
-                    color: AppPalette.textColor1,
-                    size: ScreenUtil().radius(20),
-                  ),
-                  SizedBox(
-                    width: ScreenUtil().setWidth(4),
-                  ),
-                  Text(
-                    '+234 (0) 816 832 2467',
-                    style: GoogleFonts.quicksand(
-                        fontSize: ScreenUtil().setSp(10),
-                        color: AppPalette.defaultColor,
-                        fontWeight: FontWeight.w400),
-                  )
-                ],
-              ),
-              SizedBox(height: ScreenUtil().setHeight(16)),
-              const Divider(color: AppPalette.fontColor),
-              SizedBox(height: ScreenUtil().setHeight(10)),
-            ],
-          ),
-        ),
+        SizedBox(height: mHeight * 0.01),
       ],
     );
   }
@@ -148,138 +157,53 @@ class HomeComponents extends StatelessWidget {
 
 //Buttons used for the Home screen
 class HomeButtons extends StatelessWidget {
-  const HomeButtons({super.key});
+  HomeButtons({super.key});
+  final homeModel = HomeViewModel();
 
   @override
   Widget build(BuildContext context) {
+    final mHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        Responsive(
-          builder: (BuildContext context, screenSizeInfo) => Card(
-            child: Container(
-              padding: REdgeInsets.all(10),
-              height: ScreenUtil().setHeight(100),
-              width: ScreenUtil().setWidth(370),
-              child: Column(children: [
-                RichText(
-                  textAlign: TextAlign.left,
-                  text: TextSpan(
-                      text: 'Objectives\n',
-                      style: GoogleFonts.quicksand(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(13),
-                          color: AppPalette.fontColor),
-                      children: <TextSpan>[
-                        TextSpan(
-                            text:
-                                'To utilize my technical skills and provide a professional service to customers by applying and honing my knowledge and working in a challenging and motivating working environment. ',
-                            style: GoogleFonts.quicksand(
-                                fontSize: ScreenUtil().setSp(12),
-                                fontWeight: FontWeight.w400,
-                                color: AppPalette.fontColor)),
-                      ]),
-                )
-              ]),
-            ),
+        SizedBox(height: mHeight * 0.02),
+        AppBtn(
+          onTap: () {
+            homeModel.gotoEducation(context);
+          },
+          leading: const FaIcon(
+            FontAwesomeIcons.graduationCap,
+            size: 20,
+            color: defaultColor,
           ),
+          title: homeModel.education,
+          subtitle: homeModel.subEdu,
         ),
-        SizedBox(height: ScreenUtil().setHeight(20)),
-        AppButton(
-            primary: AppPalette.buttonColor,
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => const Background())),
-            fill: Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.graduationCap,
-                  size: ScreenUtil().radius(25),
-                  color: AppPalette.defaultColor,
-                ),
-                SizedBox(width: ScreenUtil().setWidth(12)),
-                RichText(
-                  textAlign: TextAlign.left,
-                  text: TextSpan(
-                      text: 'Educational Background\n',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(14),
-                          color: AppPalette.fontColor),
-                      children: <TextSpan>[
-                        TextSpan(
-                            text: 'Find out more on qualifications accquired',
-                            style: GoogleFonts.montserrat(
-                                fontSize: ScreenUtil().setSp(10),
-                                fontWeight: FontWeight.w400,
-                                color: AppPalette.fontColor)),
-                      ]),
-                ),
-              ],
-            )),
-        SizedBox(height: ScreenUtil().setHeight(20)),
-        AppButton(
-            primary: AppPalette.buttonColor,
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => const ExpScreen())),
-            fill: Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.starHalfStroke,
-                  size: ScreenUtil().radius(25),
-                  color: AppPalette.defaultColor,
-                ),
-                SizedBox(width: ScreenUtil().setWidth(12)),
-                RichText(
-                  textAlign: TextAlign.left,
-                  text: TextSpan(
-                      text: 'Experience\n',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(14),
-                          color: AppPalette.fontColor),
-                      children: <TextSpan>[
-                        TextSpan(
-                            text:
-                                'More on work done and previous roles handled',
-                            style: GoogleFonts.montserrat(
-                                fontSize: ScreenUtil().setSp(10),
-                                fontWeight: FontWeight.w400,
-                                color: AppPalette.fontColor)),
-                      ]),
-                ),
-              ],
-            )),
-        SizedBox(height: ScreenUtil().setHeight(20)),
-        AppButton(
-            primary: AppPalette.buttonColor,
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => const PortFolio())),
-            fill: Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.handHoldingHeart,
-                  size: ScreenUtil().radius(25),
-                  color: AppPalette.defaultColor,
-                ),
-                SizedBox(width: ScreenUtil().setWidth(12)),
-                RichText(
-                  textAlign: TextAlign.left,
-                  text: TextSpan(
-                      text: 'About Me\n',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w700,
-                          fontSize: ScreenUtil().setSp(14),
-                          color: AppPalette.fontColor),
-                      children: <TextSpan>[
-                        TextSpan(
-                            text: 'Connect via different social handles',
-                            style: GoogleFonts.montserrat(
-                                fontSize: ScreenUtil().setSp(10),
-                                fontWeight: FontWeight.w400,
-                                color: AppPalette.fontColor)),
-                      ]),
-                ),
-              ],
-            )),
+        SizedBox(height: mHeight * 0.02),
+        AppBtn(
+          onTap: () {
+            homeModel.gotoExperience(context);
+          },
+          leading: const FaIcon(
+            FontAwesomeIcons.starHalfStroke,
+            size: 20,
+            color: defaultColor,
+          ),
+          title: homeModel.experience,
+          subtitle: homeModel.subExp,
+        ),
+        SizedBox(height: mHeight * 0.02),
+        AppBtn(
+          onTap: () {
+            homeModel.gotoPortfolio(context);
+          },
+          leading: const FaIcon(
+            FontAwesomeIcons.handHoldingHeart,
+            size: 20,
+            color: defaultColor,
+          ),
+          title: homeModel.about,
+          subtitle: homeModel.subAb,
+        ),
       ],
     );
   }
