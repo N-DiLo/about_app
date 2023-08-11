@@ -1,8 +1,6 @@
 import 'package:about_app/utils/constant/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
+import 'app_text.dart';
 
 class AppSettings extends StatefulWidget {
   const AppSettings({Key? key}) : super(key: key);
@@ -14,75 +12,66 @@ class AppSettings extends StatefulWidget {
 class _AppSettingsState extends State<AppSettings> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: REdgeInsets.all(16),
-          decoration: const BoxDecoration(
-            color: AppPalette.primaryColor,
+    final mWidth = MediaQuery.of(context).size.width;
+    final mHeight = MediaQuery.of(context).size.height;
+
+    return Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(children: [
+          SizedBox(
+            height: mHeight * 0.03,
           ),
-          child: Row(
-            children: [
-              Icon(Iconsax.setting_4,
-                  color: AppPalette.whiteColor, size: ScreenUtil().radius(30)),
-              const SizedBox(width: 17),
-              Text(
-                'App Settings',
-                style: GoogleFonts.quicksand(
-                    color: AppPalette.whiteColor,
-                    fontWeight: FontWeight.w700,
-                    fontSize: ScreenUtil().setSp(20)),
-              ),
-            ],
+          AppText(
+            text: 'CHANGE APP COLOR MODE',
+            fontSize: 15,
+            fontWeight: FontWeight.w700,
+            color: fontColor,
           ),
-        ),
-        Padding(
-            padding: const EdgeInsets.all(28.0),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              SizedBox(height: ScreenUtil().setHeight(20)),
-              Text(
-                'CHANGE APP COLOR MODE',
-                style: GoogleFonts.montserrat(
-                    fontSize: ScreenUtil().setSp(15),
-                    fontWeight: FontWeight.w700,
-                    color: AppPalette.fontColor),
-              ),
-              SizedBox(height: ScreenUtil().setHeight(38)),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Column(
-                  children: [
-                    Image.asset('assets/dark-mode.png',
-                        width: ScreenUtil().setWidth(99),
-                        height: ScreenUtil().setHeight(116)),
-                    SizedBox(height: ScreenUtil().setHeight(18)),
-                    Text(
-                      'DARK MODE',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w600,
-                          fontSize: ScreenUtil().setSp(14)),
-                    )
-                  ],
+          SizedBox(height: mHeight * 0.05),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Column(
+              children: [
+                Image.asset(
+                  darkMode,
+                  width: 100,
+                  height: 100,
                 ),
-                SizedBox(width: ScreenUtil().setWidth(62)),
-                Column(
-                  children: [
-                    Image.asset('assets/light-mode.png',
-                        width: ScreenUtil().setWidth(99),
-                        height: ScreenUtil().setHeight(116)),
-                    SizedBox(height: ScreenUtil().setHeight(18)),
-                    Text(
-                      'LIGHT MODE',
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w600,
-                          fontSize: ScreenUtil().setSp(14)),
-                    )
-                  ],
+                SizedBox(height: mHeight * 0.04),
+                AppText(
+                  text: 'DARK MODE',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
                 ),
-              ])
-            ])),
-      ],
-    );
+                SizedBox(height: mHeight * 0.04),
+                Radio(
+                  value: 0,
+                  groupValue: 0,
+                  onChanged: (value) {},
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Image.asset(
+                  lightMode,
+                  width: 100,
+                  height: 100,
+                ),
+                SizedBox(height: mHeight * 0.04),
+                AppText(
+                  text: 'LIGHT MODE',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                ),
+                SizedBox(height: mHeight * 0.04),
+                Radio(
+                  value: 0,
+                  groupValue: 0,
+                  onChanged: (value) {},
+                ),
+              ],
+            ),
+          ])
+        ]));
   }
 }

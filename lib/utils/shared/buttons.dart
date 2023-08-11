@@ -106,7 +106,16 @@ class FAB extends StatelessWidget {
     return FloatingActionButton(
         backgroundColor: primaryColor,
         onPressed: (() => showModalBottomSheet(
-            context: context, builder: (_) => const AppSettings())),
+              elevation: 3.0,
+              context: context,
+              builder: (_) => Container(
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20))),
+                child: const AppSettings(),
+              ),
+            )),
         child: const Icon(
           Iconsax.setting_2,
           size: 30,

@@ -38,3 +38,7 @@ const psLogo = 'assets/ps-logo.png';
 const illusLogo = 'assets/illus-logo.png';
 const flutterLogo = 'assets/flutter-logo.png';
 const cdLogo = 'assets/cd-logo.png';
+
+//AppModes
+const lightMode = 'assets/light-mode.png';
+const darkMode = 'assets/dark-mode.png';
