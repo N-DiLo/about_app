@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../screens/landscape/background.dart/background_view_model.dart';
 import '../../screens/landscape/home/home_view_model.dart';
 import '../constant/app_color.dart';
@@ -222,23 +223,26 @@ class SocialComponent extends StatelessWidget {
         SizedBox(
           height: ScreenUtil().setHeight(52),
           width: ScreenUtil().setWidth(57),
-          child: Link(
-              target: LinkTarget.blank,
-              uri: Uri.parse('https://twitter.com/nwanedilobu'),
-              builder: (context, followLink) => SocialButton(
-                  primary: AppPalette.buttonColor,
-                  fill: FaIcon(
-                    FontAwesomeIcons.twitter,
-                    color: AppPalette.twColor,
-                    size: ScreenUtil().radius(30),
-                  ),
-                  onPressed: () => followLink)),
+          child: SocialButton(
+            primary: AppPalette.buttonColor,
+            fill: FaIcon(
+              FontAwesomeIcons.twitter,
+              color: AppPalette.twColor,
+              size: ScreenUtil().radius(30),
+            ),
+            onPressed: () async {
+              var url = 'https://www.twitter.com/nwanedilobu';
+              if (await canLaunchUrl(Uri.parse(url))) {
+                await launchUrl(Uri.parse(url));
+              }
+            },
+          ),
         ),
         SizedBox(
           height: ScreenUtil().setHeight(52),
           width: ScreenUtil().setWidth(57),
           child: Link(
-              target: LinkTarget.blank,
+              target: LinkTarget.self,
               uri: Uri.parse('https://linkedin.com/nwanedilobu'),
               builder: (context, followLink) => SocialButton(
                   primary: AppPalette.buttonColor,

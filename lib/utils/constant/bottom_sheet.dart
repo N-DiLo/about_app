@@ -12,7 +12,7 @@ class AppSettings extends StatefulWidget {
 class _AppSettingsState extends State<AppSettings> {
   @override
   Widget build(BuildContext context) {
-    final mWidth = MediaQuery.of(context).size.width;
+    //final mWidth = MediaQuery.of(context).size.width;
     final mHeight = MediaQuery.of(context).size.height;
 
     return Padding(

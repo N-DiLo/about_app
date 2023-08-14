@@ -1,8 +1,8 @@
 import 'package:about_app/utils/components/app_components.dart';
 import 'package:about_app/utils/constant/app_color.dart';
 import 'package:about_app/utils/responsive.dart';
-import 'package:about_app/utils/shared/buttons.dart';
 import 'package:flutter/material.dart';
+import '../../utils/components/widgets/fab_btns.dart';
 import '../landscape/home/home_view.dart';
 
 class HomeView extends StatelessWidget {
