@@ -1,10 +1,11 @@
 import 'package:about_app/utils/components/app_components.dart';
 import 'package:about_app/utils/constant/app_color.dart';
 import 'package:about_app/utils/responsive.dart';
-import 'package:about_app/utils/shared/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../utils/components/widgets/fab_btns.dart';
 
 class ExpScreen extends StatelessWidget {
   const ExpScreen({super.key});
