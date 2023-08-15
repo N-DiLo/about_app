@@ -29,7 +29,6 @@ const buttonColor = Color(0xffF7F8FA);
 const appLogo = 'assets/app-logo.png';
 const profileImage = 'assets/profile.jpg';
 const csLogo = 'assets/cs-logo.png';
-const chsLogo = 'assets/chs-logo.png';
 const diloLogo = 'assets/dilo-logo.png';
 const rsLogo = 'assets/rs-logo.png';
 const kenpolyLogo = 'assets/kenpoly-logo.png';
@@ -38,6 +37,8 @@ const psLogo = 'assets/ps-logo.png';
 const illusLogo = 'assets/illus-logo.png';
 const flutterLogo = 'assets/flutter-logo.png';
 const cdLogo = 'assets/cd-logo.png';
+const eniLogo = 'assets/eni-logo.png';
+const exxonLogo = 'assets/exxon-logo.jpg';
 
 //AppModes
 const lightMode = 'assets/light-mode.png';

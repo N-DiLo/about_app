@@ -18,9 +18,17 @@ class ExpModel {
   String expDS = 'DiLo Studios';
   String expDsRole = 'Designs & Coding Instructor';
 
-  String cs = 'Cenad Schools, Rivers - Port Harcourt';
-  String chsRole = 'Computer & Data Processing Instructor';
-  String chsDate = 'September, 2020 - Till Date';
+  String cs = 'Cenad Schools, Rivers State, P.H';
+  String csRole = 'Computer & Data Processing Instructor';
+  String csDate = 'September, 2020 - Till Date';
+
+  String exxon = 'ExxonMobil Nigeria';
+  String exRole = 'EMIT (Customer Support) - Intern';
+  String exDate = 'August, 2018';
+
+  String eni = 'Nigeria Agip Oil Company';
+  String eniRole = 'Training Dept. Trainee';
+  String eniDate = 'December, 2015';
 
   void popBack(BuildContext context) {
     Navigator.pop(context);
