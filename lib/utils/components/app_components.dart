@@ -494,48 +494,6 @@ class ExpComponents extends StatelessWidget {
             Row(
               children: [
                 Image.asset(
-                  chsLogo,
-                  width: 45,
-                  height: 45,
-                ),
-                SizedBox(
-                  width: mWidth * 0.03,
-                ),
-                Column(
-                  children: [
-                    RichText(
-                      textAlign: TextAlign.left,
-                      text: TextSpan(
-                          text: 'Cenad Schools, Rivers - Port Harcourt\n',
-                          style: GoogleFonts.quicksand(
-                              fontSize: ScreenUtil().setSp(11),
-                              fontWeight: FontWeight.w700,
-                              color: AppPalette.textColor),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'Computer Instructor\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            TextSpan(
-                              text: 'September, 2020 - Till Date',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ]),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            SizedBox(
-              height: mHeight * 0.02,
-            ),
-            Row(
-              children: [
-                Image.asset(
                   csLogo,
                   width: 45,
                   height: 45,
@@ -544,32 +502,104 @@ class ExpComponents extends StatelessWidget {
                   width: mWidth * 0.03,
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RichText(
-                      textAlign: TextAlign.left,
-                      text: TextSpan(
-                          text: 'Cenad Schools, Rivers - Port Harcourt\n',
-                          style: GoogleFonts.quicksand(
-                              fontSize: ScreenUtil().setSp(11),
-                              fontWeight: FontWeight.w700,
-                              color: AppPalette.textColor),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'Coding Instructor\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            TextSpan(
-                              text: 'September, 2020 - Till Date',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(9),
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ]),
+                    DescText(
+                      text: expModel.cs,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.csRole,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.csDate,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
                     ),
                   ],
-                )
+                ),
+              ],
+            ),
+            SizedBox(
+              height: mHeight * 0.02,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  exxonLogo,
+                  width: 45,
+                  height: 45,
+                ),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DescText(
+                      text: expModel.exxon,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.exRole,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.exDate,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: mHeight * 0.02,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  eniLogo,
+                  width: 45,
+                  height: 45,
+                ),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DescText(
+                      text: expModel.eni,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.eniRole,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.eniDate,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                  ],
+                ),
               ],
             )
           ],
