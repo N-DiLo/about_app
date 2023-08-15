@@ -1,9 +1,6 @@
-import 'package:about_app/utils/responsive.dart';
 import 'package:about_app/utils/shared/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:url_launcher/link.dart';
@@ -152,7 +149,6 @@ class HomeComponents extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: mHeight * 0.01),
       ],
     );
   }
@@ -218,18 +214,20 @@ class SocialComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final mWidth = MediaQuery.of(context).size.width;
+    // final mHeight = MediaQuery.of(context).size.height;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         SizedBox(
-          height: ScreenUtil().setHeight(52),
-          width: ScreenUtil().setWidth(57),
+          height: 52,
+          width: 57,
           child: SocialButton(
-            primary: AppPalette.buttonColor,
-            fill: FaIcon(
+            primary: buttonColor,
+            fill: const FaIcon(
               FontAwesomeIcons.twitter,
-              color: AppPalette.twColor,
-              size: ScreenUtil().radius(30),
+              color: kcTWColor,
+              size: 25,
             ),
             onPressed: () async {
               var url = 'https://www.twitter.com/nwanedilobu';
@@ -240,47 +238,47 @@ class SocialComponent extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: ScreenUtil().setHeight(52),
-          width: ScreenUtil().setWidth(57),
+          height: 52,
+          width: 57,
           child: Link(
               target: LinkTarget.self,
-              uri: Uri.parse('https://linkedin.com/nwanedilobu'),
-              builder: (context, followLink) => SocialButton(
-                  primary: AppPalette.buttonColor,
-                  fill: FaIcon(
-                    FontAwesomeIcons.facebook,
-                    color: AppPalette.fbColor,
-                    size: ScreenUtil().radius(30),
-                  ),
-                  onPressed: () => followLink)),
-        ),
-        SizedBox(
-          height: ScreenUtil().setHeight(52),
-          width: ScreenUtil().setWidth(57),
-          child: Link(
-              target: LinkTarget.blank,
               uri: Uri.parse('https://facebook.com/nwanedilobu'),
               builder: (context, followLink) => SocialButton(
-                  primary: AppPalette.buttonColor,
-                  fill: FaIcon(
-                    FontAwesomeIcons.linkedinIn,
-                    color: AppPalette.lnColor,
-                    size: ScreenUtil().radius(30),
+                  primary: buttonColor,
+                  fill: const FaIcon(
+                    FontAwesomeIcons.facebook,
+                    color: kcFBColor,
+                    size: 25,
                   ),
                   onPressed: () => followLink)),
         ),
         SizedBox(
-          height: ScreenUtil().setHeight(52),
-          width: ScreenUtil().setWidth(57),
+          height: 52,
+          width: 57,
+          child: Link(
+              target: LinkTarget.blank,
+              uri: Uri.parse('https://linkedin.com/nwanedilobu'),
+              builder: (context, followLink) => SocialButton(
+                  primary: buttonColor,
+                  fill: const FaIcon(
+                    FontAwesomeIcons.linkedinIn,
+                    color: kcLNColor,
+                    size: 25,
+                  ),
+                  onPressed: () => followLink)),
+        ),
+        SizedBox(
+          height: 52,
+          width: 57,
           child: Link(
               target: LinkTarget.blank,
               uri: Uri.parse('https://github.com/N-DiLo'),
               builder: (context, followLink) => SocialButton(
-                  primary: AppPalette.buttonColor,
-                  fill: FaIcon(
+                  primary: buttonColor,
+                  fill: const FaIcon(
                     FontAwesomeIcons.github,
-                    color: AppPalette.defaultColor,
-                    size: ScreenUtil().radius(30),
+                    color: defaultColor,
+                    size: 25,
                   ),
                   onPressed: () => followLink)),
         ),
@@ -295,88 +293,73 @@ class AboutText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(
-      builder: (context, screenSizeInfo) => RichText(
-        textAlign: TextAlign.left,
-        text: TextSpan(
-            text: 'Thinking\n',
-            style: GoogleFonts.quicksand(
-                fontWeight: FontWeight.w700,
-                fontSize: ScreenUtil().setSp(14),
-                color: AppPalette.fontColor),
-            children: <TextSpan>[
-              TextSpan(
-                  text: 'Analysing | Exploring\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(13),
-                      fontWeight: FontWeight.w500,
-                      color: AppPalette.primaryColor)),
-              TextSpan(
-                  text:
-                      'Nwanedilobu prefers to take decisions based on feelings or instinct rather than rely on evidence. As a result, Nwanedilobu tends to pay attention to different views and opinions rather than spending their time analysing data.\n\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(12),
-                      fontWeight: FontWeight.w400,
-                      color: AppPalette.fontColor)),
-              TextSpan(
-                  text: 'Executing\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(14),
-                      fontWeight: FontWeight.w700,
-                      color: AppPalette.fontColor)),
-              TextSpan(
-                  text: 'Quality | Result Driven\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(13),
-                      fontWeight: FontWeight.w500,
-                      color: AppPalette.primaryColor)),
-              TextSpan(
-                  text:
-                      'Nwanedilobu tends to be systematic, methodical and organised and delivers within deadlines. Nwanedilobu is reliable and disciplined and driven to achieve their goals.\n\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(12),
-                      fontWeight: FontWeight.w400,
-                      color: AppPalette.fontColor)),
-              TextSpan(
-                  text: 'Connecting\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(14),
-                      fontWeight: FontWeight.w700,
-                      color: AppPalette.fontColor)),
-              TextSpan(
-                  text: 'Networking | Collaborating\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(13),
-                      fontWeight: FontWeight.w500,
-                      color: AppPalette.primaryColor)),
-              TextSpan(
-                  text:
-                      'Nwanedilobu is someone who feels at ease when connecting with new people and generally has a well-developed network.\n\nNwanedilobu displays empathy towards colleagues and finds it important to listen to their points of view. Nwanedilobu is likely to involve others in key decisions and plans. Nwanedilobu gives credit where it is due and delegates easily when necessary.\n\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(12),
-                      fontWeight: FontWeight.w400,
-                      color: AppPalette.fontColor)),
-              TextSpan(
-                  text: 'Progressing\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(14),
-                      fontWeight: FontWeight.w700,
-                      color: AppPalette.fontColor)),
-              TextSpan(
-                  text: 'Leadership | Resillience | Adaptability\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(13),
-                      fontWeight: FontWeight.w500,
-                      color: AppPalette.primaryColor)),
-              TextSpan(
-                  text:
-                      'Nwanedilobu is comfortable with working in rapidly changing environments. Nwanedilobu views failures as learning opportunities and an intrinsic part of the route to success. Nwanedilobu brings energy to groups without wanting to necessarily take charge.\n\n',
-                  style: GoogleFonts.quicksand(
-                      fontSize: ScreenUtil().setSp(12),
-                      fontWeight: FontWeight.w400,
-                      color: AppPalette.fontColor)),
-            ]),
-      ),
+    return Column(
+      children: [
+        DescText(
+            text: 'Thinking',
+            fontWeight: FontWeight.w700,
+            fontSize: 14,
+            color: fontColor),
+        DescText(
+            text: 'Analysing | Exploring',
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: primaryColor),
+        DescText(
+            text:
+                'Nwanedilobu prefers to take decisions based on feelings or instinct rather than rely on evidence. As a result, Nwanedilobu tends to pay attention to different views and opinions rather than spending their time analysing data.\n\n',
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: fontColor),
+        DescText(
+            text: 'Executing',
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            color: fontColor),
+        DescText(
+            text: 'Quality | Result Driven',
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: primaryColor),
+        DescText(
+            text:
+                'Nwanedilobu tends to be systematic, methodical and organised and delivers within deadlines. Nwanedilobu is reliable and disciplined and driven to achieve their goals.\n\n',
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: fontColor),
+        DescText(
+            text: 'Connecting',
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            color: fontColor),
+        DescText(
+            text: 'Networking | Collaborating',
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: primaryColor),
+        DescText(
+            text:
+                'Nwanedilobu is someone who feels at ease when connecting with new people and generally has a well-developed network.\n\nNwanedilobu displays empathy towards colleagues and finds it important to listen to their points of view. Nwanedilobu is likely to involve others in key decisions and plans. Nwanedilobu gives credit where it is due and delegates easily when necessary.\n\n',
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: fontColor),
+        DescText(
+            text: 'Progressing',
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+            color: fontColor),
+        DescText(
+            text: 'Leadership | Resillience | Adaptability',
+            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            color: primaryColor),
+        DescText(
+            text:
+                'Nwanedilobu is comfortable with working in rapidly changing environments. Nwanedilobu views failures as learning opportunities and an intrinsic part of the route to success. Nwanedilobu brings energy to groups without wanting to necessarily take charge.\n\n',
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: fontColor),
+      ],
     );
   }
 }
