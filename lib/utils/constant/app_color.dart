@@ -28,7 +28,7 @@ const buttonColor = Color(0xffF7F8FA);
 //App Images
 const appLogo = 'assets/app-logo.png';
 const profileImage = 'assets/profile.jpg';
-const cedsLogo = 'assets/ceds-logo.png';
+const csLogo = 'assets/cs-logo.png';
 const chsLogo = 'assets/chs-logo.png';
 const diloLogo = 'assets/dilo-logo.png';
 const rsLogo = 'assets/rs-logo.png';

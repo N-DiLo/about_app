@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         //
         routes: {
           Background.routeName: (ctx) => Background(),
-          ExpScreen.routeName: (ctx) => const ExpScreen(),
+          ExpScreen.routeName: (ctx) => ExpScreen(),
           PortFolio.routeName: (ctx) => const PortFolio(),
         },
       ),

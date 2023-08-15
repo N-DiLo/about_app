@@ -9,6 +9,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../screens/landscape/background.dart/background_view_model.dart';
+import '../../screens/landscape/background.dart/experience/exp_view_model.dart';
 import '../../screens/landscape/home/home_view_model.dart';
 import '../constant/app_color.dart';
 import '../constant/app_text.dart';
@@ -382,228 +383,197 @@ class AboutText extends StatelessWidget {
 
 //Experience Components
 class ExpComponents extends StatelessWidget {
-  const ExpComponents({super.key});
+  ExpComponents({super.key});
+
+  final expModel = ExpModel();
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(
-      builder: (context, screenSizeInfo) => Column(
-        children: [
-          Card(
-            child: Container(
-              padding: REdgeInsets.all(10),
-              height: ScreenUtil().setHeight(110),
-              width: ScreenUtil().setWidth(370),
-              child: Column(children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Work Experience - 1',
-                    style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w700,
-                        fontSize: ScreenUtil().setSp(13),
-                        color: AppPalette.fontColor),
-                  ),
-                ),
-                const Divider(color: AppPalette.fontColor),
-                Row(
-                  children: [
-                    Image.asset(
-                      rsLogo,
-                      width: ScreenUtil().setWidth(45),
-                      height: ScreenUtil().setHeight(44),
-                    ),
-                    SizedBox(width: ScreenUtil().setWidth(7)),
-                    Column(
-                      children: [
-                        RichText(
-                          textAlign: TextAlign.left,
-                          text: TextSpan(
-                              text: 'Risigner Innovations\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(11),
-                                  fontWeight: FontWeight.w700,
-                                  color: AppPalette.textColor),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: 'Mobile Developer\n',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                TextSpan(
-                                  text: 'Present',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ]),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ]),
+    final mWidth = MediaQuery.of(context).size.width;
+    final mHeight = MediaQuery.of(context).size.height;
+
+    return Card(
+      elevation: 2,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        height: mHeight * 0.5,
+        width: mWidth,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: AppText(
+                text: expModel.workExp,
+                fontWeight: FontWeight.w700,
+                fontSize: 13,
+                color: fontColor,
+              ),
             ),
-          ),
-          Card(
-            child: Container(
-              padding: REdgeInsets.all(10),
-              height: ScreenUtil().setHeight(110),
-              width: ScreenUtil().setWidth(370),
-              child: Column(children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Work Experience - 2',
-                    style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w700,
-                        fontSize: ScreenUtil().setSp(13),
-                        color: AppPalette.fontColor),
-                  ),
-                ),
-                const Divider(color: AppPalette.fontColor),
-                Row(
-                  children: [
-                    Image.asset(
-                      diloLogo,
-                      width: ScreenUtil().setWidth(45),
-                      height: ScreenUtil().setHeight(44),
-                    ),
-                    SizedBox(width: ScreenUtil().setWidth(7)),
-                    Column(
-                      children: [
-                        RichText(
-                          textAlign: TextAlign.left,
-                          text: TextSpan(
-                              text: 'DiLo Dev. Studios\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(11),
-                                  fontWeight: FontWeight.w700,
-                                  color: AppPalette.textColor),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: 'Designs & Coding Instructor\n',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                TextSpan(
-                                  text: 'Present',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ]),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ]),
+            const Divider(
+              color: fontColor,
+              thickness: 1,
             ),
-          ),
-          SizedBox(
-            height: ScreenUtil().setHeight(22),
-          ),
-          Card(
-            child: Container(
-              padding: REdgeInsets.all(10),
-              height: ScreenUtil().setHeight(174),
-              width: ScreenUtil().setWidth(370),
-              child: Column(children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Work Experience - 3',
-                    style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w700,
-                        fontSize: ScreenUtil().setSp(13),
-                        color: AppPalette.fontColor),
-                  ),
-                ),
-                const Divider(color: AppPalette.fontColor),
-                Row(
-                  children: [
-                    Image.asset(
-                      chsLogo,
-                      width: ScreenUtil().setWidth(45),
-                      height: ScreenUtil().setHeight(44),
-                    ),
-                    SizedBox(width: ScreenUtil().setWidth(7)),
-                    Column(
-                      children: [
-                        RichText(
-                          textAlign: TextAlign.left,
-                          text: TextSpan(
-                              text: 'Cenad Schools, Rivers - Port Harcourt\n',
-                              style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(11),
-                                  fontWeight: FontWeight.w700,
-                                  color: AppPalette.textColor),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: 'Computer Instructor\n',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                TextSpan(
-                                  text: 'September, 2020 - Till Date',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ]),
-                        ),
-                      ],
-                    )
-                  ],
+            SizedBox(
+              height: mHeight * 0.02,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  rsLogo,
+                  width: 45,
+                  height: 45,
                 ),
                 SizedBox(
-                  height: ScreenUtil().setHeight(18),
+                  width: mWidth * 0.03,
                 ),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      cedsLogo,
-                      width: ScreenUtil().setWidth(45),
-                      height: ScreenUtil().setHeight(44),
+                    DescText(
+                      text: expModel.expRS,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: textColor,
                     ),
-                    SizedBox(width: ScreenUtil().setWidth(7)),
-                    Column(
-                      children: [
-                        RichText(
-                          textAlign: TextAlign.left,
-                          text: TextSpan(
-                              text: 'Cenad Schools, Rivers - Port Harcourt\n',
+                    DescText(
+                      text: expModel.expRSrole,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.expDate,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: mHeight * 0.02,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  diloLogo,
+                  width: 45,
+                  height: 45,
+                ),
+                SizedBox(width: mWidth * 0.03),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DescText(
+                      text: expModel.expDS,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.expDsRole,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: textColor,
+                    ),
+                    DescText(
+                      text: expModel.expDate,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(
+              height: mHeight * 0.02,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  chsLogo,
+                  width: 45,
+                  height: 45,
+                ),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
+                Column(
+                  children: [
+                    RichText(
+                      textAlign: TextAlign.left,
+                      text: TextSpan(
+                          text: 'Cenad Schools, Rivers - Port Harcourt\n',
+                          style: GoogleFonts.quicksand(
+                              fontSize: ScreenUtil().setSp(11),
+                              fontWeight: FontWeight.w700,
+                              color: AppPalette.textColor),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'Computer Instructor\n',
                               style: GoogleFonts.quicksand(
-                                  fontSize: ScreenUtil().setSp(11),
-                                  fontWeight: FontWeight.w700,
-                                  color: AppPalette.textColor),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: 'Coding Instructor\n',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                TextSpan(
-                                  text: 'September, 2020 - Till Date',
-                                  style: GoogleFonts.quicksand(
-                                      fontSize: ScreenUtil().setSp(9),
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ]),
-                        ),
-                      ],
-                    )
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            TextSpan(
+                              text: 'September, 2020 - Till Date',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ]),
+                    ),
                   ],
                 )
-              ]),
+              ],
             ),
-          ),
-        ],
+            SizedBox(
+              height: mHeight * 0.02,
+            ),
+            Row(
+              children: [
+                Image.asset(
+                  csLogo,
+                  width: 45,
+                  height: 45,
+                ),
+                SizedBox(
+                  width: mWidth * 0.03,
+                ),
+                Column(
+                  children: [
+                    RichText(
+                      textAlign: TextAlign.left,
+                      text: TextSpan(
+                          text: 'Cenad Schools, Rivers - Port Harcourt\n',
+                          style: GoogleFonts.quicksand(
+                              fontSize: ScreenUtil().setSp(11),
+                              fontWeight: FontWeight.w700,
+                              color: AppPalette.textColor),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: 'Coding Instructor\n',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            TextSpan(
+                              text: 'September, 2020 - Till Date',
+                              style: GoogleFonts.quicksand(
+                                  fontSize: ScreenUtil().setSp(9),
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ]),
+                    ),
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

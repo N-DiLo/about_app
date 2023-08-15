@@ -3,7 +3,6 @@ import 'package:about_app/utils/constant/app_color.dart';
 import 'package:about_app/utils/constant/app_text.dart';
 import 'package:about_app/utils/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../utils/components/widgets/fab_btns.dart';
 import '../landscape/background.dart/background_view.dart';
 import '../landscape/background.dart/background_view_model.dart';
@@ -39,7 +38,7 @@ class Background extends StatelessWidget {
           ),
           backgroundColor: AppPalette.whiteColor,
           body: Padding(
-            padding: REdgeInsets.symmetric(horizontal: mWidth * 0.06),
+            padding: EdgeInsets.symmetric(horizontal: mWidth * 0.06),
             child: SingleChildScrollView(
               child: Column(
                 children: [
